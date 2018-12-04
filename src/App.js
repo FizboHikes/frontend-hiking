@@ -10,9 +10,10 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Route path="/home" component={Home} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/hike/new" component={HikeForm} />
+          <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/dashboard" component={Dashboard} />
+          </Switch>
         </Router>
       </div>
     );
