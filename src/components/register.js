@@ -29,20 +29,6 @@ class Register extends Component {
 				<h2>Welcome! Register here.</h2>
 				<form className="Formfield" onSubmit={this.onSubmit}>
 					<input
-						type="text"
-						name="firstName"
-						value={firstName}
-						onChange={this.onChange}
-					/>
-
-					<input
-						type="text"
-						name="lastName"
-						value={lastName}
-						onChange={this.onChange}
-					/>
-
-					<input
 						type="email"
 						name="email"
 						value={email}
