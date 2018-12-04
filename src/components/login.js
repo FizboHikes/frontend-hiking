@@ -6,18 +6,17 @@ import AuthService from '../services';
 class Login extends Component {
   constructor(props) {
   super(props)
-
-  this.auth = new AuthService()
-  this.state = {
-    registerSuccess: false,
-    errors: "",
-    form: {
-      user: {
-        email: "test@example.com",
-        password: "123134"
+    this.auth = new AuthService()
+    this.state = {
+      loginSuccess: false,
+      errors: "",
+      form: {
+        user: {
+          email: "test@example.com",
+          password: "123134"
+        }
       }
     }
-  }
   }
 
   render() {
@@ -42,8 +41,9 @@ class Login extends Component {
           // placeholder={password}
         />
         {this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-        <button onSubmit={this.onSubmit}>Login</button>
+        <button>Login</button>
       </form>
+      	{this.state.loginSuccess && <Redirect to="/dashboard" />}
     </main>
     )
   }
@@ -58,8 +58,9 @@ class Login extends Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-    console.log(this.auth + "im auth");
+
     // this.props.getUser(this.state.form.user.email)
+    console.log("Starting Login");
     this.auth.login(this.state.form)
     .then(json => {
       console.log("Got to second then:", json)
@@ -70,19 +71,13 @@ class Login extends Component {
         })
       } else {
         console.log("preparing to redirect")
-        this.props.statusUpdate()
-        // this.setState({
-        //   registerSuccess: true
-        // })
-
+        this.setState({
+          loginSuccess: true
+        })
       }
     })
   }
-
-
 }
-
-
 
 
 export default Login;
