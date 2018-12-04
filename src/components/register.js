@@ -13,8 +13,6 @@ class Register extends Component {
 			errors: "",
 			form: {
 				user: {
-					firstName: "test",
-					lastName: "test1",
 					email: "test@example.com",
 					password: "123134",
 				}
@@ -23,7 +21,7 @@ class Register extends Component {
 	}
 
 	render() {
-		let { firstName, lastName, email, password } = this.state.form.user
+		let { email, password } = this.state.form.user
 		return (
 			<main>
 				<h2>Welcome! Register here.</h2>
@@ -43,10 +41,10 @@ class Register extends Component {
 						onChange={this.onChange}
 					/>
 					{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-					<button onSubmit={this.onSubmit}>Register</button>
+					<button>Register</button>
 
 				</form>
-				{this.state.registerSuccess && <Redirect to="/protected" />}
+				{this.state.registerSuccess && <Redirect to="/dashboard" />}
 			</main>
 		)
 	}
@@ -77,7 +75,7 @@ class Register extends Component {
 				this.setState({
 					registerSuccess: true
 				})
-				this.props.statusUpdate()
+				// this.props.statusUpdate()
 			}
 		})
 	}
