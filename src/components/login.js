@@ -3,6 +3,8 @@ import '../App.css';
 import { Redirect, Link } from 'react-router-dom';
 import AuthService from '../services';
 
+
+//Login to be renamed
 class Login extends Component {
   constructor(props) {
   super(props)
@@ -50,9 +52,7 @@ class Login extends Component {
 
   onChange = (e) => {
     let { form } = this.state
-
     form.user[e.target.name] = e.target.value
-
     this.setState({ form })
   }
 
