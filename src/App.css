@@ -1,0 +1,25 @@
+
+.cardComponents {
+  /* border: 1px solid white; */
+  display: table-cell;
+  justify-content: center;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  margin: 10px 10px;
+  text-align: center;
+}
+
+.cardComponent img {
+border: 3px gray solid;
+border-radius: 10px;
+width: 200px;
+height: 200px;
+margin: 5px;
+}
+
+main {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}

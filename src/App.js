@@ -5,6 +5,7 @@ import NavMenu from './components/navmenu'
 import Dashboard from './pages/dashboard'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import AuthService from './services/index.js'
+import HikeCard from './components/hikeCard.js'
 
 
 class App extends Component {
