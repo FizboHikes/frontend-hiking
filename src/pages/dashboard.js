@@ -8,6 +8,7 @@ class Dashboard extends Component {
     this.state = {
       url: "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=7039084-3fb0c833662f3c90057cc37e292d1118",
       hikeList: undefined
+      googleApiKey: "AIzaSyB_RpOSFqOIb51R22UAqKygmX7_bRwJKaI"
     }
   }
 
