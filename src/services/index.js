@@ -44,6 +44,11 @@ export default class AuthService {
 		return !!token && !this.isTokenExpired(token)
 	}
 
+	// Fetch the token from local storage
+	getToken() {
+		return localStorage.getItem('idtoken')
+	}
+
 	isTokenExpired(token) {
 		try {
 			const decoded = decode(token)
@@ -66,10 +71,6 @@ export default class AuthService {
 		}
 	}
 
-	// Fetch the token from local storage
-	getToken() {
-		return localStorage.getItem('idtoken')
-	}
 
 	// Removes the token
 	logout() {

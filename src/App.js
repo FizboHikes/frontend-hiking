@@ -20,16 +20,29 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <Router>
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route page="/profile" component={Profile} />
-          </Switch>
+    <div>
+      <Router>
+        <div>
+        {(this.auth.loggedIn())
+          // if logged in
+          ? <Switch>
+              <Route path="/home" component={Home} />
+              <Redirect path="/home" to="/dashboard"/>
+              <Route path="/dashboard" component={Dashboard} />
+              <Route page="/profile" component={Profile} />
+            </Switch>
+            // If NOT LOGGED IN (IE GUEST USER)
+          : <Switch>
 
-        </Router>
-      </div>
+            <Route exact path="/home" component={Home} />
+            <Redirect path="/dashboard" to="/home"/>
+            <Redirect path="/profile" to="/home"/>
+            <Route exact path="/profile" redirect={Profile} />
+            </Switch>}
+
+        </div>
+      </Router>
+    </div>
     );
   }
 

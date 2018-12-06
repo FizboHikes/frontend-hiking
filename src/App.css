@@ -23,3 +23,7 @@ main {
   display: flex;
   justify-content: center;
 }
+
+p{
+  width:contain;
+}

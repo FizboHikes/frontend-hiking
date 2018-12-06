@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Navbar } from 'react-bootstrap';
 import AuthService from '../services';
+import Login from '../components/login'
 
 
-
-class NavMenu extends Component {
+class GuestNavMenu extends Component {
   constructor(props){
     super(props)
     this.auth = new AuthService()
@@ -17,6 +17,9 @@ class NavMenu extends Component {
     console.log(this.props.authenticated)
 
     return(
+      <div>
+
+
       <Navbar className="Navbar">
       <Navbar.Header>
         <Navbar.Brand pullLeft>
@@ -26,23 +29,15 @@ class NavMenu extends Component {
       </Navbar.Header>
       <Navbar.Collapse>
         <Navbar.Text pullRight>
-          Logged In as: {(this.props.currentUser) ? this.props.currentUser : "Not logged in"}
         </Navbar.Text>
-        <Navbar.Text> <a href="/dashboard"> My Dashboard  </a> </Navbar.Text>
-        <Navbar.Text> <a onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
-        
-        <Navbar.Text> <a href="/profile"> Profile View  </a> </Navbar.Text>
         <Navbar.Text pullRight></Navbar.Text>
 
+        <Login/>
       </Navbar.Collapse>
     </Navbar>
+    </div>
   )
-  }
-
-  handleClick = () => {
-    this.auth.logout()
-    this.props.statusUpdate()
   }
 }
 
-export default NavMenu;
+export default GuestNavMenu;

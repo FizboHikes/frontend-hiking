@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Dashboard from '../pages/dashboard'
 import App from '../App'
 import HikeList from './hikeList'
-import { Navbar, Grid, Row, Col } from 'react-bootstrap';
+import { Navbar, Grid, Row, Col, Thumbnail } from 'react-bootstrap';
 
 
 class HikeCard extends Component {
@@ -14,18 +14,18 @@ class HikeCard extends Component {
     console.log(this.props.hike)
     let {hike} = this.props
     return(
-    <main className="cardComponents">
+    <div>
     <Grid>
-      <Row className="show-grid">
-        <Col xs={12} md={8}>
+      <Row>
+        <Col sm={6} md={3} lg={4}>
           <div >
             <img width="195" src={hike.img} />
             <p>{hike.hikename}</p>
             <p>{hike.comments}</p>
           </div>
         </Col>
-        <Col xs={12} md={8}>
-          <div >
+        <Col sm={6} md={3} lg={4}>
+          <div>
             <img width="195" src={hike.img} />
             <p>{hike.hikename}</p>
             <p>{hike.comments}</p>
@@ -34,7 +34,7 @@ class HikeCard extends Component {
       </Row>
     </Grid>
 
-    </main>
+    </div>
     )
   }
 }

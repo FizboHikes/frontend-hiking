@@ -3,12 +3,13 @@ import '../App.css';
 import { Jumbotron } from 'react-bootstrap';
 import Register from '../components/register'
 import Login from '../components/login'
+import GuestNavMenu from '../components/guestnavmenu'
 
 class Home extends Component {
   render() {
     return (
       <div>
-      <Login />
+      <GuestNavMenu />
       <Register />
       <Jumbotron>
         <div className="missionStatement">
