@@ -5,6 +5,7 @@ import NavMenu from './components/navmenu'
 import Dashboard from './pages/dashboard'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import AuthService from './services/index.js'
+import NewHike from './pages/createHike'
 
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/hikes/new" component={NewHike} />
             <Redirect from="/login" to="/dashboard" />
           </Switch>
         </Router>
