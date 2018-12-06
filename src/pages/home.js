@@ -8,8 +8,8 @@ class Home extends Component {
     return (
       <div>
       home page
-      <Login/>
-      <Register/>
+      <Login />
+      <Register />
       </div>
     );
   }

@@ -27,7 +27,7 @@ class NavMenu extends Component {
       </Navbar.Header>
       <Navbar.Collapse>
         <Navbar.Text pullRight>
-          Logged In as: {(this.props.userEmail) ? this.props.form.user.email : "testing"}
+          Logged In as: {(this.props.currentUser) ? this.props.currentUser : "Not logged in"}
         </Navbar.Text>
         <Navbar.Text> <a href="/dashboard"> My Dashboard  </a> </Navbar.Text>
         <Navbar.Text> <a href="/home"> Log Out </a> </Navbar.Text>

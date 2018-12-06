@@ -24,11 +24,17 @@ class App extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/dashboard" component={Dashboard} />
-            <Redirect from="/login" to="/dashboard" />
           </Switch>
+
         </Router>
       </div>
     );
+  }
+
+
+  getUser = (user) => {
+    console.log(user)
+    this.setState({user})
   }
 
 }
