@@ -62,18 +62,18 @@ export default class AuthService {
 	setToken(token) {
 		if(token != null){
 			let parsedToken = token.split('.')[1]
-			localStorage.setItem('id_token', parsedToken)
+			localStorage.setItem('idtoken', parsedToken)
 		}
 	}
 
 	// Fetch the token from local storage
 	getToken() {
-		return localStorage.getItem('id_token')
+		return localStorage.getItem('idtoken')
 	}
 
 	// Removes the token
 	logout() {
-		localStorage.removeItem('id_token');
+		localStorage.removeItem('idtoken');
 	}
 
 	getUserId = () => {
