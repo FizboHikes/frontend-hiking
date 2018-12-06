@@ -32,7 +32,7 @@ class GuestNavMenu extends Component {
         </Navbar.Text>
         <Navbar.Text pullRight></Navbar.Text>
 
-        <Login/>
+        <Login refresh={this.props.refresh}/>
       </Navbar.Collapse>
     </Navbar>
     </div>

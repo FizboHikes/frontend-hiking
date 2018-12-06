@@ -9,7 +9,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <GuestNavMenu />
+      <GuestNavMenu refresh={this.props.refresh}/>
       <Register />
       <Jumbotron>
         <div className="missionStatement">

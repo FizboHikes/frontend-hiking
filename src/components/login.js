@@ -74,6 +74,7 @@ class Login extends Component {
         this.setState({
           loginSuccess: true
         })
+        this.props.refresh()
         // this.props.getUser(this.state.form.user.email)
       }
     })
