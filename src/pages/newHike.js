@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Home from '../pages/home'
 import NavMenu from '../components/navmenu'
-import Geocode from "react-geocode";
 
-Geocode.setApiKey("AIzaSyB_RpOSFqOIb51R22UAqKygmX7_bRwJKaI")
-Geocode.enableDebug();
 
 class NewHike extends Component {
   constructor(props){

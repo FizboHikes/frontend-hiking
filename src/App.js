@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import AuthService from './services/index.js'
 import HikeCard from './components/hikeCard.js'
 import Profile from './pages/profileView'
-
+import NewHike from './pages/newHike'
 
 class App extends Component {
   constructor(props){
@@ -30,10 +30,11 @@ class App extends Component {
               <Route path="/home" component={Home} />
               <Route path="/dashboard" component={Dashboard} />
               <Route page="/profile" component={Profile} />
+              <Route path="/hikes/new" component={NewHike} />
             </Switch>
+
             // If NOT LOGGED IN (IE GUEST USER)
           : <Switch>
-
             <Route path="/home" render={(routeProps) => (
               <Home refresh={this.refresh}{...routeProps} />)} />
             <Redirect path="/dashboard" to="/home"/>
