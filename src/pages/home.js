@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Jumbotron } from 'react-bootstrap';
 import Register from '../components/register'
-import Login from '../components/login'
+import LoginForm from '../components/loginForm'
 import GuestNavMenu from '../components/guestnavmenu'
 
 class Home extends Component {
   render() {
     return (
       <div>
-      <GuestNavMenu refresh={this.props.refresh}/>
+      <GuestNavMenu setUser={this.props.setUser}/>
       <Register />
       <Jumbotron>
         <div className="missionStatement">

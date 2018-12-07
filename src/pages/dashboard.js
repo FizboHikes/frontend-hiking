@@ -14,9 +14,9 @@ class Dashboard extends Component {
 
 
   render() {
+
     return (
       <div>
-        <NavMenu />
         <Jumbotron>
           <img src="" alt="This is the image" />
         </Jumbotron>

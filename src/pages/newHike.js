@@ -26,7 +26,7 @@ class NewHike extends Component {
           image:"",
           summary: "",
           stars: "",
-          maxEl: "",
+          high: "",
           ascent: "",
           difficulty: "",
           stars: "",
@@ -148,13 +148,13 @@ class NewHike extends Component {
 
   handleSelect = (el) => {
     let { hikeForm } = this.state
-
+    console.log(el)
     this.setState({ hikeForm: {
       trailHead: el.name,
       image: el.imgMedium,
       summary: el.summary,
       stars: el.stars,
-      maxEl: el.high,
+      high: el.high,
       ascent: el.ascent,
       difficulty: el.difficulty,
       stars: el.stars,

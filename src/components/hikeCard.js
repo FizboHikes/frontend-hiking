@@ -10,8 +10,7 @@ class HikeCard extends Component {
     super(props)
   }
   render(){
-    console.log("this is the props hikesList")
-    console.log(this.props.hike)
+  
     let {hike} = this.props
     return(
     <div>

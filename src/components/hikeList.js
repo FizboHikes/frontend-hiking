@@ -30,8 +30,7 @@ class HikeList extends Component {
 
   render() {
     let {hikeList} = this.state
-    console.log("this is the hikelist from HikeList")
-    console.log(hikeList)
+    
     let hikeListOrder = hikeList.map((hike, index) => {
 
       return(

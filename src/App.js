@@ -15,12 +15,13 @@ class App extends Component {
     this.auth = new AuthService
     this.state={
       authenticated: this.auth.loggedIn(),
-      user: ""
+      user: {}
     }
   }
   render() {
     return (
     <div>
+    <NavMenu user={this.state.user} setUser={this.setUser}/>
       <Router>
         <div>
         {(this.auth.loggedIn())
@@ -28,7 +29,9 @@ class App extends Component {
           ? <Switch>
               <Redirect path="/home" to="/dashboard"/>
               <Route path="/home" component={Home} />
-              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/dashboard" render={(routeProps) => (
+                  <Dashboard user={this.state.user} {...routeProps} /> )} />
+
               <Route path="/profile" component={Profile} />
               <Route path="/hikes/new" component={NewHike} />
             </Switch>
@@ -36,7 +39,7 @@ class App extends Component {
             // If NOT LOGGED IN (IE GUEST USER)
           : <Switch>
             <Route path="/home" render={(routeProps) => (
-              <Home refresh={this.refresh}{...routeProps} />)} />
+              <Home setUser={this.setUser}{...routeProps} />)} />
             <Redirect path="/dashboard" to="/home"/>
             <Redirect path="/profile" to="/home"/>
             <Route exact path="/profile" redirect={Profile} />
@@ -49,18 +52,10 @@ class App extends Component {
   }
 
 
-  getUser = (user) => {
+  setUser = (user) => {
     console.log(user)
     this.setState({user})
   }
-
-  refresh = () => {
-  this.setState ({
-    authenticated: this.auth.loggedIn()
-  })
-}
-
-
 }
 
 

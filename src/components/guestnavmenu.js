@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Navbar } from 'react-bootstrap';
 import AuthService from '../services';
-import Login from '../components/login'
+import LoginForm from '../components/loginForm'
 
 
 class GuestNavMenu extends Component {
@@ -32,7 +32,7 @@ class GuestNavMenu extends Component {
         </Navbar.Text>
         <Navbar.Text pullRight></Navbar.Text>
 
-        <Login refresh={this.props.refresh}/>
+        <LoginForm setUser={this.props.setUser}/>
       </Navbar.Collapse>
     </Navbar>
     </div>
