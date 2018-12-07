@@ -25,13 +25,14 @@ class NewHike extends Component {
   }
 
   getTrailHeads = () => {
-    let url = `${this.state.trailBaseUrl}lat=${this.state.lat}&lon=${this.state.lon}&maxDistance=75&maxResults=20&key=${this.state.trailApiKey}`
+    let url = `${this.state.trailBaseUrl}lat=${this.state.lat}&lon=${this.state.lon}&maxDistance=75&sort=Distance&maxResults=20&key=${this.state.trailApiKey}`
     fetch(url)
     .then((stringResponse) => {
       return stringResponse.json()
     })
     .then((json) => {
       let {trails} = json
+      console.log(json)
       this.setState({hikeList: trails})
     })
   }
@@ -58,6 +59,8 @@ class NewHike extends Component {
     if(this.state.hikeList){
     return (
       <div>
+          <input type="text" onChange={this.handleChange} value={this.state.city}></input>
+          <button type="submit" onClick={this.submitCity}>Submit City</button>
           {this.state.hikeList.map( (el, index) => {
             return(
             <div>
@@ -65,8 +68,6 @@ class NewHike extends Component {
               <ul key={index}>
                 <li>Trailhead: {el.name}</li>
                 <li>Location: {el.location}</li>
-                <li>Difficulty: {el.difficulty}</li>
-                <li>Rating: {el.stars}/5</li>
               </ul>
             </div>
             )})}
