@@ -15,7 +15,7 @@ export default class AuthService {
 			console.log(statusResponse)
 			let token = statusResponse.headers.get('Authorization')
 			// set a JWT token in local storage, taken out of response from API
-			console.log("this is my token" +token);
+			console.log("this is my token" + token);
 			this.setToken(token)
 			//return json from response
 			return statusResponse.json()
@@ -44,6 +44,11 @@ export default class AuthService {
 		return !!token && !this.isTokenExpired(token)
 	}
 
+	// Fetch the token from local storage
+	getToken() {
+		return localStorage.getItem('idtoken')
+	}
+
 	isTokenExpired(token) {
 		try {
 			const decoded = decode(token)
@@ -62,18 +67,14 @@ export default class AuthService {
 	setToken(token) {
 		if(token != null){
 			let parsedToken = token.split('.')[1]
-			localStorage.setItem('id_token', parsedToken)
+			localStorage.setItem('idtoken', parsedToken)
 		}
 	}
 
-	// Fetch the token from local storage
-	getToken() {
-		return localStorage.getItem('id_token')
-	}
 
 	// Removes the token
 	logout() {
-		localStorage.removeItem('id_token');
+		localStorage.removeItem('idtoken');
 	}
 
 	getUserId = () => {

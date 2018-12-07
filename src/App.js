@@ -5,7 +5,8 @@ import NavMenu from './components/navmenu'
 import Dashboard from './pages/dashboard'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import AuthService from './services/index.js'
-import NewHike from './pages/createHike'
+import HikeCard from './components/hikeCard.js'
+import Profile from './pages/profileView'
 
 
 class App extends Component {
@@ -19,18 +20,45 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <Router>
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/hikes/new" component={NewHike} />
-            <Redirect from="/login" to="/dashboard" />
-          </Switch>
-        </Router>
-      </div>
+    <div>
+      <Router>
+        <div>
+        {(this.auth.loggedIn())
+          // if logged in
+          ? <Switch>
+              <Redirect path="/home" to="/dashboard"/>
+              <Route path="/home" component={Home} />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route page="/profile" component={Profile} />
+            </Switch>
+            // If NOT LOGGED IN (IE GUEST USER)
+          : <Switch>
+
+            <Route path="/home" render={(routeProps) => (
+              <Home refresh={this.refresh}{...routeProps} />)} />
+            <Redirect path="/dashboard" to="/home"/>
+            <Redirect path="/profile" to="/home"/>
+            <Route exact path="/profile" redirect={Profile} />
+            </Switch>}
+
+        </div>
+      </Router>
+    </div>
     );
   }
+
+
+  getUser = (user) => {
+    console.log(user)
+    this.setState({user})
+  }
+
+  refresh = () => {
+  this.setState ({
+    authenticated: this.auth.loggedIn()
+  })
+}
+
 
 }
 
