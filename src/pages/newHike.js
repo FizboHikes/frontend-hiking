@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Home from '../pages/home'
 import NavMenu from '../components/navmenu'
-
+import { BrowserRouter as Redirect } from 'react-router-dom';
+import '../assets/newHike.css'
 
 class NewHike extends Component {
   constructor(props){
@@ -16,10 +17,25 @@ class NewHike extends Component {
       lat: "",
       lon: "",
       geoBaseURl: "https://maps.googleapis.com/maps/api/geocode/json?address=",
-
+      createSuccess: false,
+      hikeForm: {
+          trailHead: "",
+          customHikeName: "",
+          comments:"",
+          tips:"",
+          image:"",
+          summary: "",
+          stars: "",
+          maxEl: "",
+          ascent: "",
+          difficulty: "",
+          stars: "",
+          location: ""
+      }
 
     }
   }
+
 
   getTrailHeads = () => {
     let url = `${this.state.trailBaseUrl}lat=${this.state.lat}&lon=${this.state.lon}&maxDistance=75&sort=Distance&maxResults=20&key=${this.state.trailApiKey}`
@@ -52,35 +68,65 @@ class NewHike extends Component {
 
 
   render() {
-
-    if(this.state.hikeList){
+    let {hikeForm}= this.state
+    let style = "trailList"
     return (
-      <div>
+      <div className = "newHikePage">
+        <div>
+          <h2>Create Hike</h2>
           <input type="text" onChange={this.handleChange} value={this.state.city}></input>
           <button type="submit" onClick={this.submitCity}>Submit City</button>
-          {this.state.hikeList.map( (el, index) => {
-            return(
-            <div>
-              <h5>Result #{index+1}</h5>
-              <ul key={index}>
-                <li>Trailhead: {el.name}</li>
-                <li>Location: {el.location}</li>
-              </ul>
+          <div className = {(this.state.hikeList) && style} >
+            {(this.state.hikeList) && this.state.hikeList.map( (el, index) => {
+                return(
+                <div onClick={this.handleSelect.bind(this, el)}>
+                  <h5>Result #{index+1}</h5>
+                  <ul key={index}>
+                    <li>Trailhead: {el.name}</li>
+                    <li>Location: {el.location}</li>
+                  </ul>
+                </div>
+                )})}
             </div>
-            )})}
+        </div>
 
+            {/* Adding form to create tips and descriptions */}
+            {(hikeForm.trailHead) && <main className="createHikeForm">
+              <form onSubmit={this.onSubmit}>
+              <h2>{hikeForm.trailHead}</h2>
+              <div className= "hikeInputForm">
+              <input className= "hikeInput" required
+                type="hikeName"
+                name="customHikeName"
+                placeholder= "Enter Your Hike Name"
+                value={hikeForm.customHikeName}
+                onChange={this.onChange}
+              />
+                <input className= "hikeInput" required
+                  type="comments"
+                  name="comments"
+                  placeholder= "Hike Comments"
+                  value={hikeForm.comments}
+                  onChange={this.onChange}
+                />
+
+                <input className= "hikeInput" required
+                  type="tips"
+                  name="tips"
+                  placeholder= "Hike Tips"
+                  value={hikeForm.tips}
+                  onChange={this.onChange}
+                />
+                </div>
+                <button>Save</button>
+              </form>
+
+                {this.state.createSuccess && <Redirect to="/hikes" />}
+            </main>}
       </div>
     );
-    } else {
-      return(
-        <div>
-          <input type="text" onChange={this.handleChange} value={this.state.city}></input>
-          <button type="submit" onClick={this.submitCity}>Submit City</button>
-          <p>Trailheads waiting for location</p>
-        </div>
-      )
     }
-  }
+
 
   handleChange=(e)=>{
     console.log(e)
@@ -91,6 +137,32 @@ class NewHike extends Component {
     this.getCoordinates(this.state.city)
 
   }
+
+// Added for form to create tips and description.
+  onChange = (e) => {
+    let { hikeForm } = this.state
+    hikeForm[e.target.name] = e.target.value
+    this.setState({ hikeForm })
+    console.log(this.state.hikeForm)
+  }
+
+  handleSelect = (el) => {
+    let { hikeForm } = this.state
+
+    this.setState({ hikeForm: {
+      trailHead: el.name,
+      image: el.imgMedium,
+      summary: el.summary,
+      stars: el.stars,
+      maxEl: el.high,
+      ascent: el.ascent,
+      difficulty: el.difficulty,
+      stars: el.stars,
+      location: el.location}
+    })
+  }
+
+
 }
 
 export default NewHike;

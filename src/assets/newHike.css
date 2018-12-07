@@ -1,0 +1,29 @@
+.createHikeFrom {
+  display: flex;
+  flex-direction: row;
+}
+
+.hikeInputForm {
+  display: flex;
+  flex-direction: column;
+}
+
+input.hikeInput {
+  margin: 5px 10px;
+}
+
+.trailList {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 10px;
+  background-color: gray;
+  width: 300px;
+  padding: 10px 10px;
+  height: 600px;
+  overflow:auto;
+}
+
+.newHikePage {
+  display: flex;
+  flex-direction: row;
+}

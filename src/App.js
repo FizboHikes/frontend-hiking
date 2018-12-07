@@ -29,7 +29,7 @@ class App extends Component {
               <Redirect path="/home" to="/dashboard"/>
               <Route path="/home" component={Home} />
               <Route path="/dashboard" component={Dashboard} />
-              <Route page="/profile" component={Profile} />
+              <Route path="/profile" component={Profile} />
               <Route path="/hikes/new" component={NewHike} />
             </Switch>
 
