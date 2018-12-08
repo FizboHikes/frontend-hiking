@@ -21,8 +21,8 @@ class NewHike extends Component {
       geoBaseURl: "https://maps.googleapis.com/maps/api/geocode/json?address=",
       newHikeSuccess: false,
       hikeForm: {
-          trailHead: "",
-          customHikeName: "",
+          trailhead: "",
+          hikename: "",
           comments:"",
           tips:"",
           image:"",
@@ -93,15 +93,15 @@ class NewHike extends Component {
         </div>
 
             {/* Adding form to create tips and descriptions */}
-            {(hikeForm.trailHead) && <main className="createHikeForm">
+            {(hikeForm.trailhead) && <main className="createHikeForm">
               <form onSubmit={this.handleSubmit}>
-              <h2>{hikeForm.trailHead}</h2>
+              <h2>{hikeForm.trailhead}</h2>
               <div className= "hikeInputForm">
               <input className= "hikeInput" required
-                type="hikeName"
-                name="customHikeName"
+                type="hikename"
+                name="hikename"
                 placeholder= "Enter Your Hike Name"
-                value={hikeForm.customHikeName}
+                value={hikeForm.hikename}
                 onChange={this.onChange}
               />
                 <input className= "hikeInput" required
@@ -167,7 +167,7 @@ class NewHike extends Component {
   handleSelect = (el) => {
     let { hikeForm } = this.state
     this.setState({ hikeForm: {
-      trailHead: el.name,
+      trailhead: el.name,
       image: el.imgMedium,
       summary: el.summary,
       stars: el.stars,

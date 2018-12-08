@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import AuthService from './services/index.js'
 import HikeCard from './components/hikeCard.js'
 import NewHike from './pages/newHike'
+import ShowHike from './pages/showHike'
 
 class App extends Component {
   constructor(props){
@@ -33,6 +34,7 @@ class App extends Component {
               <Route path="/home" component={Home} />
               <Route path="/dashboard" component={Dashboard}/>
               <Route path="/hikes/new" component={NewHike} />
+              <Route path="/hikes/:id" component={ShowHike} />
             </Switch>
 
             // If NOT LOGGED IN (IE GUEST USER)

@@ -60,9 +60,9 @@ let deleteApartment = function(id) {
   })
 }
 
-let getApartment = function(id) {
-  console.log("this is my id in the getappartment function " + id)
-  return fetch(BASE + '/apartments/' + id)
+let getHike = function(id) {
+  console.log("this is my id in the getHike function " + id)
+  return fetch(BASE + '/hikes/' + id)
     .then((resp) => {
       let json = resp.json()
       console.log(json);
@@ -71,5 +71,5 @@ let getApartment = function(id) {
 }
 
 export {
-  getApartments, createHike, getApartment, getUserHikes, deleteApartment, getEmail
+  getApartments, createHike, getHike, getUserHikes, deleteApartment, getEmail
 }
