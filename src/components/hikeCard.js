@@ -16,11 +16,12 @@ class HikeCard extends Component {
     <div>
     <Grid>
       <Row>
-        <Col sm={6} md={3} lg={4}>
-          <Thumbnail href={`hikes/${hike.id}`} src={hike.image}/>
+        <Col sm={4} md={4} lg={4}>
+          <Thumbnail className="hikeCard" href={`hikes/${hike.id}`} src={hike.image}/>
             <h2>{hike.hikename}</h2>
             <p><strong>Comments: </strong>{hike.comments}</p>
             <p><strong>Tips: </strong>{hike.tips}</p>
+
         </Col>
       </Row>
     </Grid>

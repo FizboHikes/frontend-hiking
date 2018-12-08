@@ -50,6 +50,11 @@ class App extends Component {
     );
   }
 
+  refresh = () => {
+    this.setState({
+      authenticated: this.auth.loggedIn()
+    })
+  }
 
   setUser = (user) => {
     console.log(user)
