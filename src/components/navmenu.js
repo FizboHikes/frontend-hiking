@@ -30,7 +30,7 @@ class NavMenu extends Component {
         <Navbar.Text> <a href="/dashboard"> My Dashboard  </a> </Navbar.Text>
         <Navbar.Text> <a onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
 
-        <Navbar.Text> <a href="/profile"> Profile View  </a> </Navbar.Text>
+        <Navbar.Text> <a href="/hikes/new"> Create Hike  </a> </Navbar.Text>
         <Navbar.Text pullRight></Navbar.Text>
 
       </Navbar.Collapse>

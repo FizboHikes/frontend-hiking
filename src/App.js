@@ -6,7 +6,6 @@ import Dashboard from './pages/dashboard'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import AuthService from './services/index.js'
 import HikeCard from './components/hikeCard.js'
-import Profile from './pages/profileView'
 import NewHike from './pages/newHike'
 
 class App extends Component {
@@ -21,7 +20,7 @@ class App extends Component {
   render() {
     return (
     <div>
-    <NavMenu user={this.state.user} setUser={this.setUser}/>
+    {this.auth.loggedIn() && <NavMenu user={this.state.user} setUser={this.setUser}/>}
       <Router>
         <div>
         {(this.auth.loggedIn())
@@ -31,8 +30,6 @@ class App extends Component {
               <Route path="/home" component={Home} />
               <Route path="/dashboard" render={(routeProps) => (
                   <Dashboard user={this.state.user} {...routeProps} /> )} />
-
-              <Route path="/profile" component={Profile} />
               <Route path="/hikes/new" component={NewHike} />
             </Switch>
 
@@ -41,8 +38,6 @@ class App extends Component {
             <Route path="/home" render={(routeProps) => (
               <Home setUser={this.setUser}{...routeProps} />)} />
             <Redirect path="/dashboard" to="/home"/>
-            <Redirect path="/profile" to="/home"/>
-            <Route exact path="/profile" redirect={Profile} />
             </Switch>}
 
         </div>

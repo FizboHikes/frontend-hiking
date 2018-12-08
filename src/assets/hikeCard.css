@@ -1,0 +1,9 @@
+.paragraph {
+  border: solid 1px white;
+  display: flex;
+  height: 200px;
+}
+
+.thumbnail {
+  margin: auto;
+}
