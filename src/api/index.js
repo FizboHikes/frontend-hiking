@@ -36,7 +36,7 @@ let getEmail = function(user_id){
 
 
 let createHike = function(hike) {
-  console.log(hike);
+  // console.log(hike);
   return fetch(BASE + '/hikes', {
     body: JSON.stringify(hike),
     headers: {

@@ -19,9 +19,11 @@ class App extends Component {
   }
 
   render() {
+    console.log("I'm being rerendered and my state is", this.state.user)
     return (
     <div>
-    {this.auth.loggedIn() && <NavMenu user={this.state.user} setUser={this.setUser}/>}
+    {(this.auth.loggedIn()) && <NavMenu user={this.state.user}/>}
+    {/*We dont need to send setUser to the NavMenu*/}
       <Router>
         <div>
         {(this.auth.loggedIn())
@@ -29,8 +31,7 @@ class App extends Component {
           ? <Switch>
               <Redirect path="/home" to="/dashboard"/>
               <Route path="/home" component={Home} />
-              <Route path="/dashboard" render={(routeProps) => (
-                  <Dashboard user={this.state.user} {...routeProps} /> )} />
+              <Route path="/dashboard" component={Dashboard}/>
               <Route path="/hikes/new" component={NewHike} />
             </Switch>
 

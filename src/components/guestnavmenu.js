@@ -13,9 +13,7 @@ class GuestNavMenu extends Component {
   }
 
   render() {
-    console.log("This is the props authenticated");
     console.log(this.props.authenticated)
-
     return(
       <div>
 

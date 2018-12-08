@@ -33,7 +33,8 @@ class NewHike extends Component {
           difficulty: "",
           stars: "",
           location: "",
-          user_id: this.auth.getUserId()
+          user_id: undefined
+          // changed it to undefined because it's one less function call being needed.
       }
     }
   }
@@ -71,7 +72,6 @@ class NewHike extends Component {
   render() {
     let {hikeForm}= this.state
     let style = "trailList"
-    console.log("USER ID", this.state.hikeForm.user_id)
     return (
       <div className = "newHikePage">
         <div>
@@ -81,9 +81,9 @@ class NewHike extends Component {
           <div className = {(this.state.hikeList) && style} >
             {(this.state.hikeList) && this.state.hikeList.map( (el, index) => {
                 return(
-                <div onClick={this.handleSelect.bind(this, el)}>
+                <div key={index} onClick={this.handleSelect.bind(this, el)}>
                   <h5>Result #{index+1}</h5>
-                  <ul key={index}>
+                  <ul>
                     <li>Trailhead: {el.name}</li>
                     <li>Location: {el.location}</li>
                   </ul>
@@ -123,8 +123,8 @@ class NewHike extends Component {
                 <button>Save</button>
               </form>
 
-                {this.state.newHikeSuccess && <Redirect to="/dashboard" />}
             </main>}
+            {this.state.newHikeSuccess && <Redirect to="/dashboard" />}
       </div>
     );
     }
@@ -142,11 +142,13 @@ class NewHike extends Component {
         newHikeSuccess: true
       })
     })
+    .then( () => {
+      console.log(this.state)
+    })
   }
 
 
   handleChange=(e)=>{
-    console.log(e)
     this.setState({city: e.target.value})
   }
   submitCity = (e) => {
@@ -160,7 +162,6 @@ class NewHike extends Component {
     let { hikeForm } = this.state
     hikeForm[e.target.name] = e.target.value
     this.setState({ hikeForm })
-    console.log(this.state.hikeForm)
   }
 
   handleSelect = (el) => {

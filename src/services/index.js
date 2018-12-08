@@ -12,11 +12,9 @@ export default class AuthService {
 			body: JSON.stringify(user),
 		})
 		.then(statusResponse => {
-			console.log(statusResponse)
-			console.log(statusResponse.body)
 			let token = statusResponse.headers.get('Authorization')
 			// set a JWT token in local storage, taken out of response from API
-			console.log("this is my token" + token);
+			// console.log("this is my token" + token);
 			this.setToken(token)
 			//return json from response
 			return statusResponse.json()
