@@ -11,12 +11,13 @@ import NewHike from './pages/newHike'
 class App extends Component {
   constructor(props){
     super(props)
-    this.auth = new AuthService
+    this.auth = new AuthService()
     this.state={
       authenticated: this.auth.loggedIn(),
       user: {}
     }
   }
+
   render() {
     return (
     <div>

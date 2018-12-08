@@ -5,27 +5,39 @@ import { Jumbotron } from 'react-bootstrap'
 import HikeCard from '../components/hikeCard'
 import '../App.css';
 import HikeList from '../components/hikeList'
+import AuthService from '../services'
+import { getUserHikes } from '../api'
 
 
 class Dashboard extends Component {
   constructor(props){
     super(props)
+    this.auth = new AuthService
+    this.state = {
+      userHikes: []
+    }
   }
 
+  componentWillMount(){
+    getUserHikes(this.auth.getUserId())
+    .then(APIhikes => {
+      this.setState({
+        userHikes: APIhikes
+      })
+    })
+  }
 
   render() {
-
     return (
       <div>
         <Jumbotron>
           <img src="" alt="This is the image" />
         </Jumbotron>
           <div>
-            <button> Create Hike </button>
           </div>
             <div className="HikeList">
               <div className="cardComponent">
-                <HikeList/>
+                <HikeList userHikes={this.state.userHikes}/>
               </div>
           </div>
       </div>
