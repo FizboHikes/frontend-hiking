@@ -3,11 +3,13 @@ import Home from '../pages/home'
 import NavMenu from '../components/navmenu'
 import { BrowserRouter as Redirect } from 'react-router-dom';
 import '../assets/newHike.css'
+import  AuthService  from '../services'
+import { createHike } from '../api'
 
 class NewHike extends Component {
   constructor(props){
     super(props)
-
+    this.auth = new AuthService()
     this.state = {
       trailBaseUrl: "https://www.hikingproject.com/data/get-trails?",
       trailApiKey: "7039084-3fb0c833662f3c90057cc37e292d1118",
@@ -17,7 +19,7 @@ class NewHike extends Component {
       lat: "",
       lon: "",
       geoBaseURl: "https://maps.googleapis.com/maps/api/geocode/json?address=",
-      createSuccess: false,
+      newHikeSuccess: false,
       hikeForm: {
           trailHead: "",
           customHikeName: "",
@@ -30,9 +32,9 @@ class NewHike extends Component {
           ascent: "",
           difficulty: "",
           stars: "",
-          location: ""
+          location: "",
+          user_id: this.auth.getUserId()
       }
-
     }
   }
 
@@ -45,7 +47,7 @@ class NewHike extends Component {
     })
     .then((json) => {
       let {trails} = json
-      console.log(json)
+      // console.log(json)
       this.setState({hikeList: trails})
     })
   }
@@ -53,12 +55,11 @@ class NewHike extends Component {
   getCoordinates=(city)=> {
 
     let url = encodeURI(`${this.state.geoBaseURl}${this.state.city}&key=${this.state.googleApiKey}`)
-    console.log(url)
     fetch(url)
     .then( stringResponse => {
       return stringResponse.json()
     }).then( json => {
-      console.log(json)
+      // console.log(json)
       let results = json.results[0].geometry.location
       let {lat, lng} = results
       this.setState({lat: lat, lon: lng})
@@ -70,6 +71,7 @@ class NewHike extends Component {
   render() {
     let {hikeForm}= this.state
     let style = "trailList"
+    console.log("USER ID", this.state.hikeForm.user_id)
     return (
       <div className = "newHikePage">
         <div>
@@ -92,7 +94,7 @@ class NewHike extends Component {
 
             {/* Adding form to create tips and descriptions */}
             {(hikeForm.trailHead) && <main className="createHikeForm">
-              <form onSubmit={this.onSubmit}>
+              <form onSubmit={this.handleSubmit}>
               <h2>{hikeForm.trailHead}</h2>
               <div className= "hikeInputForm">
               <input className= "hikeInput" required
@@ -121,11 +123,26 @@ class NewHike extends Component {
                 <button>Save</button>
               </form>
 
-                {this.state.createSuccess && <Redirect to="/hikes" />}
+                {this.state.newHikeSuccess && <Redirect to="/dashboard" />}
             </main>}
       </div>
     );
     }
+
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('this is our hikeForm', this.state.hikeForm)
+    // this.props.submitHike(this.state.hikeForm)
+
+    createHike(this.state.hikeForm)
+    .then( successHike => {
+      console.log("SUCCESS! NEW HIKE: ", successHike);
+      this.setState({
+        newHikeSuccess: true
+      })
+    })
+  }
 
 
   handleChange=(e)=>{
@@ -148,7 +165,6 @@ class NewHike extends Component {
 
   handleSelect = (el) => {
     let { hikeForm } = this.state
-    console.log(el)
     this.setState({ hikeForm: {
       trailHead: el.name,
       image: el.imgMedium,
@@ -158,7 +174,8 @@ class NewHike extends Component {
       ascent: el.ascent,
       difficulty: el.difficulty,
       stars: el.stars,
-      location: el.location}
+      location: el.location,
+      user_id: this.auth.getUserId()}
     })
   }
 
