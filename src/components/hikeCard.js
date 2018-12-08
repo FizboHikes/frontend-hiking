@@ -17,14 +17,10 @@ class HikeCard extends Component {
     <Grid>
       <Row>
         <Col sm={6} md={3} lg={4}>
-          <Thumbnail href="#" src={hike.image}/>
-            <p className="paragraph"><a href={`hikes/${hike.id}`}>{hike.customHikeName}</a></p>
-            <p className="paragraph"><a href={`hikes/${hike.id}`}>{hike.comments}</a></p>
-        </Col>
-        <Col sm={6} md={3} lg={4}>
-          <Thumbnail href="#" src={hike.image}/>
-            <p className="paragraph">{hike.customHikeName}</p>
-            <p className="paragraph">{hike.comments}</p>
+          <Thumbnail href={`hikes/${hike.id}`} src={hike.image}/>
+            <h2>{hike.hikename}</h2>
+            <p><strong>Comments: </strong>{hike.comments}</p>
+            <p><strong>Tips: </strong>{hike.tips}</p>
         </Col>
       </Row>
     </Grid>
