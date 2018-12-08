@@ -4,6 +4,7 @@ import NavMenu from '../components/navmenu'
 import { Jumbotron } from 'react-bootstrap'
 import HikeCard from '../components/hikeCard'
 import '../App.css';
+import '../assets/dashboard.css';
 import HikeList from '../components/hikeList'
 
 
@@ -18,10 +19,9 @@ class Dashboard extends Component {
     return (
       <div>
         <Jumbotron>
-          <img src="" alt="This is the image" />
         </Jumbotron>
           <div>
-            <button> Create Hike </button>
+
           </div>
             <div className="HikeList">
               <div className="cardComponent">

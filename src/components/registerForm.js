@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom'
-
+import { Alert } from 'react-bootstrap'
 import AuthService from '../services'
 
 class RegisterForm extends Component {
@@ -23,7 +23,7 @@ class RegisterForm extends Component {
 	render() {
 		let { email, password } = this.state.form.user
 		return (
-			<main>
+			<div className="RegForm">
 				<h2>Welcome! Register here.</h2>
 				<form className="Formfield" onSubmit={this.onSubmit}>
 					<input
@@ -41,11 +41,15 @@ class RegisterForm extends Component {
 						onChange={this.onChange}
 					/>
 					{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-					<button>Register</button>
+					<button>
 
+					Register
+
+					</button>
 				</form>
+
 				{this.state.registerSuccess && <Redirect to="/dashboard" />}
-			</main>
+			</div>
 		)
 	}
 

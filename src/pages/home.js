@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Jumbotron } from 'react-bootstrap';
-import Register from '../components/register'
+import RegisterForm from '../components/registerForm'
 import LoginForm from '../components/loginForm'
 import GuestNavMenu from '../components/guestnavmenu'
+import '../assets/home.css'
 
 class Home extends Component {
   render() {
     return (
       <div>
       <GuestNavMenu setUser={this.props.setUser}/>
-      <Register />
       <Jumbotron>
         <div className="missionStatement">
           ShareHike’s mission is to connect with your friends and family through your personal hiking adventure.
@@ -20,6 +20,7 @@ class Home extends Component {
             - Find new trails and expand your private collection.
         </div>
       </Jumbotron>
+      <RegisterForm />
       </div>
     );
   }

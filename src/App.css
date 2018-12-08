@@ -15,10 +15,15 @@
   margin: auto;
 }
 
-main {
-  border: 1px solid black;
+.RegForm h2 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+
+}
+
+.Formfield {
+  display: flex;
+  justify-content: flex-end;
 }
 
 p{
