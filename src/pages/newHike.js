@@ -132,7 +132,7 @@ class NewHike extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('this is our hikeForm', this.state.hikeForm)
+    // console.log('this is our hikeForm', this.state.hikeForm)
     // this.props.submitHike(this.state.hikeForm)
 
     createHike(this.state.hikeForm)
@@ -142,9 +142,9 @@ class NewHike extends Component {
         newHikeSuccess: true
       })
     })
-    .then( () => {
-      console.log(this.state)
-    })
+    // .then( () => {
+    //   console.log(this.state)
+    // })
   }
 
 
