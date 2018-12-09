@@ -10,11 +10,6 @@
   text-align: center;
 }
 
-.cardComponent img {
-  border: 3px gray solid;
-  margin: auto;
-}
-
 .RegForm h2 {
   display: flex;
   justify-content: flex-end;

@@ -1,11 +1,25 @@
-.paragraph {
-  border: solid 1px white;
-  display: flex;
-  height: 200px;
+* {
+  box-sizing: border-box;
 }
 
-.hikeCard {
+
+.hikeCard{
   margin: auto;
   width: auto;
+  
+}
+
+.row {
+  width: auto;
+
+}
+
+.theContainer {
+  display: grid;
+  flex-direction: column;
+  text-align: left;
+  justify-content: space-around;
+  margin: 30px;
+  flex-wrap: wrap;
 
 }
