@@ -40,7 +40,7 @@ class App extends Component {
             // If NOT LOGGED IN (IE GUEST USER)
           : <Switch>
             <Route path="/home" render={(routeProps) => (
-              <Home setUser={this.setUser}{...routeProps} />)} />
+              <Home setUser={this.setUser} {...routeProps} />)} />
             <Redirect path="/dashboard" to="/home"/>
             </Switch>}
 
@@ -57,7 +57,6 @@ class App extends Component {
   }
 
   setUser = (user) => {
-    console.log(user)
     this.setState({user})
   }
 }

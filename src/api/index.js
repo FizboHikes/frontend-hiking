@@ -70,6 +70,15 @@ let getHike = function(id) {
     })
 }
 
+let getProfile = function(id) {
+  return fetch(BASE + '/profiles/' + id)
+    .then(resp => {
+      let json = resp.json()
+      console.log(json);
+      return json
+    })
+}
+
 export {
-  getApartments, createHike, getHike, getUserHikes, deleteHike, getEmail
+  getApartments, createHike, getHike, getUserHikes, deleteHike, getEmail, getProfile
 }

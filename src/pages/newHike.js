@@ -124,7 +124,7 @@ class NewHike extends Component {
               </form>
 
             </main>}
-            {this.state.newHikeSuccess && <Redirect to="/dashboard" />}
+            {(this.state.newHikeSuccess) && <Redirect to="/dashboard" />}
       </div>
     );
     }

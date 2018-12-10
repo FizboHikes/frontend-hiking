@@ -7,8 +7,8 @@ import '../App.css';
 import '../assets/dashboard.css';
 import HikeList from '../components/hikeList'
 import AuthService from '../services'
-import { getUserHikes } from '../api'
-
+import { getUserHikes, getProfile } from '../api'
+import ProfileCard from '../components/profileCard'
 
 class Dashboard extends Component {
   constructor(props){
@@ -16,25 +16,35 @@ class Dashboard extends Component {
     this.auth = new AuthService();
     this.state = {
       userHikes: [],
-      successDelete: false
+      userId: this.auth.getUserId(),
+      successDelete: false,
+      profileInfo: {}
     }
   }
 
   componentDidMount(){
-    getUserHikes(this.auth.getUserId())
+    getUserHikes(this.state.userId)
     .then(APIhikes => {
       this.setState({
         userHikes: APIhikes
       })
     })
+
+    getProfile(this.state.userId)
+      .then( APIUser => {
+        this.setState({
+          profileInfo: APIUser
+        })
+      })
   }
 
   render() {
-
+    let { profileInfo } = this.state
     return (
       <div>
         <Jumbotron>
         </Jumbotron>
+        <ProfileCard profileInfo={this.state.profileInfo} />
           <div>
           </div>
             <div className="HikeList">

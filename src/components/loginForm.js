@@ -58,19 +58,18 @@ class LoginForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-
     // this.props.getUser(this.state.form.user.email)
     // console.log("Starting Login");
     this.auth.login(this.state.form)
     .then(json => {
       // console.log("Got to second then:", json)
-      this.props.setUser(json)
       if(json.errors) {
         console.log("!! ERRORS !! ", json.errors);
         this.setState({
           errors: json.errors
         })
       } else {
+        this.props.setUser(json)
         this.setState({
           loginSuccess: true
         })
