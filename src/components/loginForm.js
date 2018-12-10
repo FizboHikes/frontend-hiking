@@ -45,7 +45,7 @@ class LoginForm extends Component {
         {this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
         <button>Login</button>
       </form>
-      
+
     </main>
     )
   }
@@ -60,10 +60,10 @@ class LoginForm extends Component {
     e.preventDefault()
 
     // this.props.getUser(this.state.form.user.email)
-    console.log("Starting Login");
+    // console.log("Starting Login");
     this.auth.login(this.state.form)
     .then(json => {
-      console.log("Got to second then:", json)
+      // console.log("Got to second then:", json)
       this.props.setUser(json)
       if(json.errors) {
         console.log("!! ERRORS !! ", json.errors);

@@ -22,6 +22,7 @@ class RegisterForm extends Component {
 
 	render() {
 		let { email, password } = this.state.form.user
+		console.log(this.auth.loggedIn())
 		return (
 			<div className="RegForm">
 				<h2>Welcome! Register here.</h2>
@@ -42,34 +43,30 @@ class RegisterForm extends Component {
 					/>
 					{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
 					<button>
-
-					Register
-
+						Register
 					</button>
 				</form>
-
-				{this.state.registerSuccess && <Redirect to="/dashboard" />}
 			</div>
 		)
 	}
 
 	onChange = (e) => {
 		let { form } = this.state
-
 		form.user[e.target.name] = e.target.value
-
 		this.setState({ form })
 	}
 
 	onSubmit = (e) => {
 		e.preventDefault()
-		console.log(this.auth);
-		console.log("the registration form is: " +this.state.form)
-		console.log(this.state.form)
+		// console.log(this.auth);
+		// console.log("the registration form is: " +this.state.form)
+		// console.log(this.state.form)
 
 		this.auth.register(this.state.form)
 		.then(json => {
 			console.log("Got to second then:", json)
+			this.props.setUser(json)
+			//this is what changed state possible.
 			if(json.errors) {
 				console.log("!! ERRORS !! ", json.errors);
 				this.setState({

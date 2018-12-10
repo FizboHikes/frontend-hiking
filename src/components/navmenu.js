@@ -14,7 +14,7 @@ class NavMenu extends Component {
   }
 
   render() {
-    console.log("This is the props.user. in navmenu :", this.props.user)
+    console.log("This is the props.user. in navmenu :", this.props.user, this.props.user.email)
     return(
       <Navbar className="Navbar">
       <Navbar.Header>

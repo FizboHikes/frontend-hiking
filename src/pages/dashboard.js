@@ -13,13 +13,13 @@ import { getUserHikes } from '../api'
 class Dashboard extends Component {
   constructor(props){
     super(props)
-    this.auth = new AuthService
+    this.auth = new AuthService();
     this.state = {
       userHikes: []
     }
   }
 
-  componentWillMount(){
+  componentDidMount(){
     getUserHikes(this.auth.getUserId())
     .then(APIhikes => {
       this.setState({
@@ -29,6 +29,7 @@ class Dashboard extends Component {
   }
 
   render() {
+
     return (
       <div>
         <Jumbotron>

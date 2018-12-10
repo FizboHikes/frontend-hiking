@@ -13,22 +13,18 @@ class HikeCard extends Component {
 
     let {hike} = this.props
     return(
-    <div>
+    <div className="theContainer">
     <Grid>
       <Row>
-        <Col sm={6} md={3} lg={4}>
-          <Thumbnail href="#" src={hike.img}/>
-            <p className="paragraph">{hike.hikename}</p>
-            <p className="paragraph">{hike.comments}</p>
-        </Col>
-        <Col sm={6} md={3} lg={4}>
-          <Thumbnail href="#" src={hike.img}/>
-            <p className="paragraph">{hike.hikename}</p>
-            <p className="paragraph">{hike.comments}</p>
+        <Col sm={4} md={4} lg={4}>
+          <Thumbnail className="hikeCard" href={`hikes/${hike.id}`} src={hike.image}>
+            <h2>{hike.hikename}</h2>
+            <p><strong>Comments: </strong>{hike.comments}</p>
+            <p><strong>Tips: </strong>{hike.tips}</p>
+            </Thumbnail>
         </Col>
       </Row>
     </Grid>
-
     </div>
     )
   }

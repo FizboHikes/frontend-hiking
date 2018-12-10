@@ -21,8 +21,8 @@ class NewHike extends Component {
       geoBaseURl: "https://maps.googleapis.com/maps/api/geocode/json?address=",
       newHikeSuccess: false,
       hikeForm: {
-          trailHead: "",
-          customHikeName: "",
+          trailhead: "",
+          hikename: "",
           comments:"",
           tips:"",
           image:"",
@@ -33,7 +33,8 @@ class NewHike extends Component {
           difficulty: "",
           stars: "",
           location: "",
-          user_id: this.auth.getUserId()
+          user_id: undefined
+          // changed it to undefined because it's one less function call being needed.
       }
     }
   }
@@ -71,7 +72,6 @@ class NewHike extends Component {
   render() {
     let {hikeForm}= this.state
     let style = "trailList"
-    console.log("USER ID", this.state.hikeForm.user_id)
     return (
       <div className = "newHikePage">
         <div>
@@ -81,9 +81,9 @@ class NewHike extends Component {
           <div className = {(this.state.hikeList) && style} >
             {(this.state.hikeList) && this.state.hikeList.map( (el, index) => {
                 return(
-                <div onClick={this.handleSelect.bind(this, el)}>
+                <div key={index} onClick={this.handleSelect.bind(this, el)}>
                   <h5>Result #{index+1}</h5>
-                  <ul key={index}>
+                  <ul>
                     <li>Trailhead: {el.name}</li>
                     <li>Location: {el.location}</li>
                   </ul>
@@ -93,15 +93,15 @@ class NewHike extends Component {
         </div>
 
             {/* Adding form to create tips and descriptions */}
-            {(hikeForm.trailHead) && <main className="createHikeForm">
+            {(hikeForm.trailhead) && <main className="createHikeForm">
               <form onSubmit={this.handleSubmit}>
-              <h2>{hikeForm.trailHead}</h2>
+              <h2>{hikeForm.trailhead}</h2>
               <div className= "hikeInputForm">
               <input className= "hikeInput" required
-                type="hikeName"
-                name="customHikeName"
+                type="hikename"
+                name="hikename"
                 placeholder= "Enter Your Hike Name"
-                value={hikeForm.customHikeName}
+                value={hikeForm.hikename}
                 onChange={this.onChange}
               />
                 <input className= "hikeInput" required
@@ -123,8 +123,8 @@ class NewHike extends Component {
                 <button>Save</button>
               </form>
 
-                {this.state.newHikeSuccess && <Redirect to="/dashboard" />}
             </main>}
+            {this.state.newHikeSuccess && <Redirect to="/dashboard" />}
       </div>
     );
     }
@@ -132,7 +132,7 @@ class NewHike extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('this is our hikeForm', this.state.hikeForm)
+    // console.log('this is our hikeForm', this.state.hikeForm)
     // this.props.submitHike(this.state.hikeForm)
 
     createHike(this.state.hikeForm)
@@ -142,11 +142,13 @@ class NewHike extends Component {
         newHikeSuccess: true
       })
     })
+    // .then( () => {
+    //   console.log(this.state)
+    // })
   }
 
 
   handleChange=(e)=>{
-    console.log(e)
     this.setState({city: e.target.value})
   }
   submitCity = (e) => {
@@ -160,13 +162,12 @@ class NewHike extends Component {
     let { hikeForm } = this.state
     hikeForm[e.target.name] = e.target.value
     this.setState({ hikeForm })
-    console.log(this.state.hikeForm)
   }
 
   handleSelect = (el) => {
     let { hikeForm } = this.state
     this.setState({ hikeForm: {
-      trailHead: el.name,
+      trailhead: el.name,
       image: el.imgMedium,
       summary: el.summary,
       stars: el.stars,

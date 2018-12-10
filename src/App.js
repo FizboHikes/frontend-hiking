@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import AuthService from './services/index.js'
 import HikeCard from './components/hikeCard.js'
 import NewHike from './pages/newHike'
+import ShowHike from './pages/showHike'
 
 class App extends Component {
   constructor(props){
@@ -19,9 +20,11 @@ class App extends Component {
   }
 
   render() {
+    console.log("I'm being rerendered and my state is", this.state.user)
     return (
     <div>
-    {this.auth.loggedIn() && <NavMenu user={this.state.user} setUser={this.setUser}/>}
+    {(this.auth.loggedIn()) && <NavMenu user={this.state.user}/>}
+    {/*We dont need to send setUser to the NavMenu*/}
       <Router>
         <div>
         {(this.auth.loggedIn())
@@ -29,9 +32,9 @@ class App extends Component {
           ? <Switch>
               <Redirect path="/home" to="/dashboard"/>
               <Route path="/home" component={Home} />
-              <Route path="/dashboard" render={(routeProps) => (
-                  <Dashboard user={this.state.user} {...routeProps} /> )} />
+              <Route path="/dashboard" component={Dashboard}/>
               <Route path="/hikes/new" component={NewHike} />
+              <Route path="/hikes/:id" component={ShowHike} />
             </Switch>
 
             // If NOT LOGGED IN (IE GUEST USER)
@@ -47,6 +50,11 @@ class App extends Component {
     );
   }
 
+  refresh = () => {
+    this.setState({
+      authenticated: this.auth.loggedIn()
+    })
+  }
 
   setUser = (user) => {
     console.log(user)

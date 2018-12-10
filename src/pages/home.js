@@ -20,7 +20,7 @@ class Home extends Component {
             - Find new trails and expand your private collection.
         </div>
       </Jumbotron>
-      <RegisterForm />
+      <RegisterForm setUser={this.props.setUser}/>
       </div>
     );
   }
