@@ -44,13 +44,13 @@ class Dashboard extends Component {
       <div>
         <Jumbotron>
         </Jumbotron>
-        <ProfileCard profileInfo={this.state.profileInfo} />
+        {(this.state.profileInfo) && <ProfileCard profileInfo={this.state.profileInfo} />}
           <div>
           </div>
             <div className="HikeList">
               <div className="cardComponent">
               {(this.state.successDelete) && <strong>Hike Deleted</strong> }
-                <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>
+                {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
               </div>
           </div>
       </div>
