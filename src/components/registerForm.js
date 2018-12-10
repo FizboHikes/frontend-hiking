@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom'
-import { Alert } from 'react-bootstrap'
+import { Alert, Grid, Col, Row } from 'react-bootstrap'
 import AuthService from '../services'
 
 class RegisterForm extends Component {
@@ -25,27 +25,34 @@ class RegisterForm extends Component {
 		console.log(this.auth.loggedIn())
 		return (
 			<div className="RegForm">
-				<h2>Welcome! Register here.</h2>
-				<form className="Formfield" onSubmit={this.onSubmit}>
-					<input
-						type="email"
-						name="email"
-						value={email}
-						onChange={this.onChange}
-					/>
-					{this.state.errors.email && <div>Error: Email  {this.state.errors.email[0]}</div>}
-
-					<input
-						type="password"
-						name="password"
-						value={password}
-						onChange={this.onChange}
-					/>
-					{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-					<button>
-						Register
-					</button>
-				</form>
+			<Grid>
+				<Row>
+					<Col sm={2} md={2} lg={2}>
+					<h2>Welcome! Register here.</h2>
+					<form className="Formfield" onSubmit={this.onSubmit}>
+							<Row>
+						<input
+							type="email"
+							name="email"
+							value={email}
+							onChange={this.onChange}
+						/>
+						{this.state.errors.email && <div>Error: Email  {this.state.errors.email[0]}</div>}
+						<input
+							type="password"
+							name="password"
+							value={password}
+							onChange={this.onChange}
+						/>
+						{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
+						<button>
+							Register
+						</button>
+						</Row>
+					</form>
+					</Col>
+				</Row>
+			</Grid>
 			</div>
 		)
 	}
