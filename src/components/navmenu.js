@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Navbar } from 'react-bootstrap';
 import AuthService from '../services';
+import GuestNavMenu from './guestnavmenu';
 
 
 
@@ -13,9 +14,7 @@ class NavMenu extends Component {
   }
 
   render() {
-    console.log("This is the props authenticated");
-    console.log(this.props.authenticated)
-
+    console.log("This is the props.user. in navmenu :", this.props.user)
     return(
       <Navbar className="Navbar">
       <Navbar.Header>
@@ -26,18 +25,17 @@ class NavMenu extends Component {
       </Navbar.Header>
       <Navbar.Collapse>
         <Navbar.Text pullRight>
-          Logged In as: {(this.props.currentUser) ? this.props.currentUser : "Not logged in"}
+          Logged In as:{(this.props.user.email) ? this.props.user.email : "Fizbo"}
         </Navbar.Text>
         <Navbar.Text> <a href="/dashboard"> My Dashboard  </a> </Navbar.Text>
         <Navbar.Text> <a onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
-        
-        <Navbar.Text> <a href="/profile"> Profile View  </a> </Navbar.Text>
+
+        <Navbar.Text> <a href="/hikes/new"> Create Hike  </a> </Navbar.Text>
         <Navbar.Text pullRight></Navbar.Text>
 
       </Navbar.Collapse>
     </Navbar>
-  )
-  }
+  )}
 
   handleClick = () => {
     this.auth.logout()

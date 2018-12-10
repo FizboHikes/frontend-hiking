@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.hikeCard{
+  margin: auto;
+  width: auto;
+  
+}
+
+.row {
+  width: auto;
+
+}
+
+.theContainer {
+  display: grid;
+  flex-direction: column;
+  text-align: left;
+  justify-content: space-around;
+  margin: 30px;
+  flex-wrap: wrap;
+
+}

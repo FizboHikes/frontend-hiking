@@ -6,21 +6,25 @@ import Dashboard from './pages/dashboard'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import AuthService from './services/index.js'
 import HikeCard from './components/hikeCard.js'
-import Profile from './pages/profileView'
 import NewHike from './pages/newHike'
+import ShowHike from './pages/showHike'
 
 class App extends Component {
   constructor(props){
     super(props)
-    this.auth = new AuthService
+    this.auth = new AuthService()
     this.state={
       authenticated: this.auth.loggedIn(),
-      user: ""
+      user: {}
     }
   }
+
   render() {
+    console.log("I'm being rerendered and my state is", this.state.user)
     return (
     <div>
+    {(this.auth.loggedIn()) && <NavMenu user={this.state.user}/>}
+    {/*We dont need to send setUser to the NavMenu*/}
       <Router>
         <div>
         {(this.auth.loggedIn())
@@ -28,18 +32,16 @@ class App extends Component {
           ? <Switch>
               <Redirect path="/home" to="/dashboard"/>
               <Route path="/home" component={Home} />
-              <Route path="/dashboard" component={Dashboard} />
-              <Route page="/profile" component={Profile} />
+              <Route path="/dashboard" component={Dashboard}/>
               <Route path="/hikes/new" component={NewHike} />
+              <Route path="/hikes/:id" component={ShowHike} />
             </Switch>
 
             // If NOT LOGGED IN (IE GUEST USER)
           : <Switch>
             <Route path="/home" render={(routeProps) => (
-              <Home refresh={this.refresh}{...routeProps} />)} />
+              <Home setUser={this.setUser} {...routeProps} />)} />
             <Redirect path="/dashboard" to="/home"/>
-            <Redirect path="/profile" to="/home"/>
-            <Route exact path="/profile" redirect={Profile} />
             </Switch>}
 
         </div>
@@ -48,19 +50,15 @@ class App extends Component {
     );
   }
 
-
-  getUser = (user) => {
-    console.log(user)
-    this.setState({user})
+  refresh = () => {
+    this.setState({
+      authenticated: this.auth.loggedIn()
+    })
   }
 
-  refresh = () => {
-  this.setState ({
-    authenticated: this.auth.loggedIn()
-  })
-}
-
-
+  setUser = (user) => {
+    this.setState({user})
+  }
 }
 
 

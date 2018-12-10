@@ -25,7 +25,7 @@ class LoginForm extends Component {
     let {email, password} = this.state.form.user
     return(
     <main>
-      <form onSubmit={this.onSubmit}>
+      <form className="loginForm" onSubmit={this.onSubmit}>
         <input
           type="email"
           name="email"
@@ -45,7 +45,7 @@ class LoginForm extends Component {
         {this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
         <button>Login</button>
       </form>
-      	{this.state.loginSuccess && <Redirect to="/dashboard" />}
+
     </main>
     )
   }
@@ -58,22 +58,22 @@ class LoginForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-
     // this.props.getUser(this.state.form.user.email)
-    console.log("Starting Login");
+    // console.log("Starting Login");
     this.auth.login(this.state.form)
     .then(json => {
-      console.log("Got to second then:", json)
+      // console.log("Got to second then:", json)
       if(json.errors) {
         console.log("!! ERRORS !! ", json.errors);
         this.setState({
           errors: json.errors
         })
       } else {
-        console.log("preparing to redirect")
+        this.props.setUser(json)
         this.setState({
           loginSuccess: true
         })
+
       }
     })
   }
