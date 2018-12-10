@@ -4,6 +4,7 @@ import App from '../App'
 import HikeList from './hikeList'
 import { Navbar, Grid, Row, Col, Thumbnail } from 'react-bootstrap';
 import "../assets/hikeCard.css"
+import { deleteHike } from '../api'
 
 class HikeCard extends Component {
   constructor(props){
@@ -21,12 +22,20 @@ class HikeCard extends Component {
             <h2>{hike.hikename}</h2>
             <p><strong>Comments: </strong>{hike.comments}</p>
             <p><strong>Tips: </strong>{hike.tips}</p>
+            <button onClick= {this.handleDelete}>Delete this Hike</button>
             </Thumbnail>
         </Col>
       </Row>
     </Grid>
     </div>
     )
+  }
+  handleDelete = (e) => {
+    e.preventDefault()
+    deleteHike(this.props.hike.id)
+    .then(()=>{
+      this.props.successDelete()
+    })
   }
 }
 

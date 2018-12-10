@@ -15,7 +15,8 @@ class Dashboard extends Component {
     super(props)
     this.auth = new AuthService();
     this.state = {
-      userHikes: []
+      userHikes: [],
+      successDelete: false
     }
   }
 
@@ -38,11 +39,15 @@ class Dashboard extends Component {
           </div>
             <div className="HikeList">
               <div className="cardComponent">
-                <HikeList userHikes={this.state.userHikes}/>
+              {(this.state.successDelete) && <strong>Hike Deleted</strong> }
+                <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>
               </div>
           </div>
       </div>
     );
+  }
+  successDelete = () => {
+    this.setState({successDelete: true})
   }
 }
 

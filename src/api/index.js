@@ -50,9 +50,9 @@ let createHike = function(hike) {
     })
 }
 
-let deleteApartment = function(id) {
+let deleteHike = function(id) {
   console.log(id);
-  return fetch(BASE + '/apartments/' + id, {
+  return fetch(BASE + '/hikes/' + id, {
     method: "DELETE"
   })
   .then((resp) => {
@@ -71,5 +71,5 @@ let getHike = function(id) {
 }
 
 export {
-  getApartments, createHike, getHike, getUserHikes, deleteApartment, getEmail
+  getApartments, createHike, getHike, getUserHikes, deleteHike, getEmail
 }
