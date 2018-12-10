@@ -16,7 +16,7 @@ class HikeCard extends Component {
     return(
     <div className="theContainer">
     <Grid>
-      <Row>
+      <Row className="HikeCardRow">
         <Col sm={6} md={3} lg={3}>
           <Thumbnail className="hikeCard" href={`hikes/${hike.id}`} src={(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"}>
             <h2>{hike.hikename}</h2>
