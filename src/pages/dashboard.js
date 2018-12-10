@@ -34,10 +34,6 @@ class Dashboard extends Component {
         <Jumbotron>
         </Jumbotron>
           <div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 599692f70050b3d8002e25b435ce8167c9170f89
           </div>
             <div className="HikeList">
               <div className="cardComponent">
