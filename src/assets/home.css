@@ -1,11 +1,33 @@
-.missionStatement {
-  font-size: 50px;
-  color: black;
-  font-weight: bold;
-  width: 300px;
+
+
+.row {
+  border: 1px solid black;
+  margin: auto;
+  background-color: rgba(244, 244, 233, 0.2);
+  width: auto;
+  padding-bottom: 20px;
 
 }
 
 h2 {
+  width: 200px;
+}
+
+input {
+  width: 200px;
+  margin: 5px;
+}
+
+
+.btn{
+  width: 200px;
+  margin: 5px;
+
+}
+
+.missionStatement {
+  width: auto;
+  float: right;
   margin: auto;
+  padding: 9px;
 }

@@ -10,15 +10,15 @@
   text-align: center;
 }
 
-.RegForm h2 {
-  display: flex;
-  justify-content: flex-end;
 
-}
 
 .Formfield {
   display: flex;
   justify-content: flex-end;
+}
+
+.loginForm {
+  float: right; 
 }
 
 p{

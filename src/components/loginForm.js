@@ -25,7 +25,7 @@ class LoginForm extends Component {
     let {email, password} = this.state.form.user
     return(
     <main>
-      <form onSubmit={this.onSubmit}>
+      <form className="loginForm" onSubmit={this.onSubmit}>
         <input
           type="email"
           name="email"
