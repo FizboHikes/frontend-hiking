@@ -47,8 +47,11 @@ class Dashboard extends Component {
     );
   }
   successDelete = () => {
+    this.state.userHikes.shift()
     this.setState({successDelete: true})
   }
+
+  // we can make a setInterval function or something that runs it once and then stops. or maybe a do while.
 }
 
 export default Dashboard;
