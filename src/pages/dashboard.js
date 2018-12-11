@@ -45,6 +45,7 @@ class Dashboard extends Component {
       <div>
         <Jumbotron>
         </Jumbotron>
+        <FollowFriend userId={this.state.userId}/>
         {(this.state.profileInfo) && <ProfileCard profileInfo={this.state.profileInfo} />}
           <div>
           </div>
@@ -54,7 +55,6 @@ class Dashboard extends Component {
                 {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
               </div>
           </div>
-          <FollowFriend/>
       </div>
     );
   }

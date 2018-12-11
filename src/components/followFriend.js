@@ -12,9 +12,21 @@ export default class FollowFriend extends Component {
   render() {
     return (
       <div>
-      <input value={this.state.email} onChange={this.handleChange}/>
+      <input value={this.state.email} placeholder="Add a friend" onChange={this.handleChange}/>
       <button onClick={this.handleFollow}>Follow Hiker</button>
       </div>
     )
   }
+  handleChange = (e) => {
+    this.setState({email: e.target.value})
+  }
+
+  handleFollow = () => {
+    followFriend(this.state, this.props.userId)
+      .then(resp => {
+        console.log(resp);
+      })
+  }
+
+
 }

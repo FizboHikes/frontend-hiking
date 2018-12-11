@@ -34,6 +34,8 @@ let createHike = function(hike) {
     method: "POST"
   })
     .then((resp) => {
+      console.log("This is the creatHike: ", resp);
+
       let json = resp.json()
       return json
     })
@@ -41,11 +43,14 @@ let createHike = function(hike) {
 
 let followFriend = function(email, id) {
   return fetch(BASE + '/users/' + id + '/add_friend', {
+    body: JSON.stringify(email),
+    headers: {
+      'Content-Type': 'application/json'
+    },
     method: "POST"
   })
   .then((resp) => {
-    let json = resp.json()
-    return json
+    return resp.json()
   })
 }
 
