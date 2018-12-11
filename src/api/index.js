@@ -1,16 +1,5 @@
 const BASE = 'http://localhost:3000'
 
-let getApartments = function() {
-  return fetch(BASE + '/apartments')
-    .then((resp) => {
-      let json = resp.json()
-      console.log(json);
-      return json
-    })
-    .catch((error) =>
-      console.log(error))
-}
-
 
 let getUserHikes= function(user_id){
   return fetch(`${BASE}/users/${user_id}/hikes`)
@@ -50,6 +39,16 @@ let createHike = function(hike) {
     })
 }
 
+let followFriend = function(email, id) {
+  return fetch(BASE + '/users/' + id + '/add_friend', {
+    method: "POST"
+  })
+  .then((resp) => {
+    let json = resp.json()
+    return json
+  })
+}
+
 let deleteHike = function(id) {
   console.log(id);
   return fetch(BASE + '/hikes/' + id, {
@@ -79,6 +78,7 @@ let getProfile = function(id) {
     })
 }
 
+
 export {
-  getApartments, createHike, getHike, getUserHikes, deleteHike, getEmail, getProfile
+  createHike, getHike, getUserHikes, deleteHike, getEmail, getProfile, followFriend
 }

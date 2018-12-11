@@ -9,6 +9,7 @@ import HikeList from '../components/hikeList'
 import AuthService from '../services'
 import { getUserHikes, getProfile } from '../api'
 import ProfileCard from '../components/profileCard'
+import FollowFriend from '../components/followFriend'
 
 class Dashboard extends Component {
   constructor(props){
@@ -53,6 +54,7 @@ class Dashboard extends Component {
                 {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
               </div>
           </div>
+          <FollowFriend/>
       </div>
     );
   }
