@@ -7,7 +7,7 @@ import '../App.css';
 import '../assets/dashboard.css';
 import HikeList from '../components/hikeList'
 import AuthService from '../services'
-import { getUserHikes, getProfile } from '../api'
+import { getUserHikes, getProfile, getFriendHikes} from '../api'
 import ProfileCard from '../components/profileCard'
 import FollowFriend from '../components/followFriend'
 
@@ -19,7 +19,8 @@ class Dashboard extends Component {
       userHikes: [],
       userId: this.auth.getUserId(),
       successDelete: false,
-      profileInfo: {}
+      profileInfo: {},
+      friendHikes: []
     }
   }
 
@@ -35,6 +36,14 @@ class Dashboard extends Component {
       .then( APIUser => {
         this.setState({
           profileInfo: APIUser
+        })
+      })
+
+    getFriendHikes(this.state.userId)
+      .then( APIFriendHikes => {
+        console.log("these are my friend's hikes", APIFriendHikes)
+        this.setState({
+          friendHikes: APIFriendHikes
         })
       })
   }
@@ -53,6 +62,9 @@ class Dashboard extends Component {
               <div className="cardComponent">
               {(this.state.successDelete) && <strong>Hike Deleted</strong> }
                 {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
+              </div>
+              <div className="cardComponent">
+                {(this.state.friendHikes) && <HikeList userHikes={this.state.friendHikes}/>}
               </div>
           </div>
       </div>

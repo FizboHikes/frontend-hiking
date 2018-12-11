@@ -11,14 +11,13 @@
 }
 
 
-
 .Formfield {
   display: flex;
   justify-content: flex-end;
 }
 
 .loginForm {
-  float: right; 
+  float: right;
 }
 
 p{

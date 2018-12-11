@@ -12,6 +12,18 @@ let getUserHikes= function(user_id){
       console.log(error))
     }
 
+let getFriendHikes= function(user_id){
+  return fetch(`${BASE}/users/${user_id}/friend_hikes`)
+    .then((resp) => {
+      let json = resp.json()
+      console.log(json);
+      return json
+    })
+    .catch((error) =>
+      console.log(error))
+    }
+
+
 let getEmail = function(user_id){
   return fetch(BASE + '/apartments/email/' + user_id)
     .then((resp) => {
@@ -85,5 +97,5 @@ let getProfile = function(id) {
 
 
 export {
-  createHike, getHike, getUserHikes, deleteHike, getEmail, getProfile, followFriend
+  createHike, getHike, getUserHikes, deleteHike, getEmail, getProfile, followFriend, getFriendHikes
 }
