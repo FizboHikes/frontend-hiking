@@ -74,19 +74,20 @@ class NewHike extends Component {
     let style = "trailList"
     return (
       <div className = "newHikePage">
-        <div>
-          <h2>Create Hike</h2>
+        <div className="searchHike">
+          <h2>Trailblaze</h2>
           <input type="text" onChange={this.handleChange} value={this.state.city}></input>
           <button type="submit" onClick={this.submitCity}>Submit City</button>
           <div className = {(this.state.hikeList) && style} >
             {(this.state.hikeList) && this.state.hikeList.map( (el, index) => {
                 return(
-                <div key={index} onClick={this.handleSelect.bind(this, el)}>
-                  <h5>Result #{index+1}</h5>
+                <div className="trailHead" key={index} onClick={this.handleSelect.bind(this, el)}>
+                  <h5>Result {index+1}.</h5>
                   <ul>
                     <li>Trailhead: {el.name}</li>
                     <li>Location: {el.location}</li>
                   </ul>
+                  <hr />
                 </div>
                 )})}
             </div>

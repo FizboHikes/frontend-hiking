@@ -58,8 +58,8 @@ class Dashboard extends Component {
       </div>
     );
   }
-  successDelete = () => {
-    this.state.userHikes.shift()
+  successDelete = (key) => {
+    delete this.state.userHikes[key];
     this.setState({successDelete: true})
   }
 

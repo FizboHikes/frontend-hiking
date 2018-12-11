@@ -7,7 +7,7 @@ const HikeList = (props) => {
 
     let hikeList = props.userHikes.map((hike, index) => {
       return(
-        <HikeCard successDelete={props.successDelete} key={index} hike={hike}/>
+        <HikeCard successDelete={props.successDelete} key={index} arrIndex={index} hike={hike}/>
       )
     })
 

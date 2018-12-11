@@ -34,7 +34,7 @@ class HikeCard extends Component {
     e.preventDefault()
     deleteHike(this.props.hike.id)
     .then(()=>{
-      this.props.successDelete()
+      this.props.successDelete(this.props.arrIndex)
     })
   }
 }
