@@ -13,21 +13,22 @@ class HikeCard extends Component {
   render(){
 
     let {hike} = this.props
+    let style = {backgroundImage: `url(${(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'}
+
+                console.log(hike)
     return(
-    <div className="theContainer">
-    <Grid>
-      <Row className="HikeCardRow">
-        <Col sm={6} md={3} lg={3}>
-          <Thumbnail className="hikeCard" href={`hikes/${hike.id}`} src={(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"}>
-            <h2>{hike.hikename}</h2>
-            <p><strong>Comments: </strong>{hike.comments}</p>
-            <p><strong>Tips: </strong>{hike.tips}</p>
-            <button onClick= {this.handleDelete}>Delete this Hike</button>
-            </Thumbnail>
-        </Col>
-      </Row>
-    </Grid>
-    </div>
+      <div className="hikeCard" style={style}>
+        <div className="overlay">
+          <div className="hikeCardText">
+          <h3>{hike.hikename}      </h3>
+          <p><strong>Comments: </strong>{hike.comments}</p>
+          <p><strong>Tips: </strong>{hike.tips}</p>
+          {(!this.props.friend) && <span onClick= {this.handleDelete}>🗑</span>}
+          </div>
+        </div>
+      </div>
     )
   }
   handleDelete = (e) => {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { Jumbotron } from 'react-bootstrap';
 import RegisterForm from '../components/registerForm'
 import LoginForm from '../components/loginForm'

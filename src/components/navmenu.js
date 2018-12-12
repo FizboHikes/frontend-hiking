@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { Navbar } from 'react-bootstrap';
 import AuthService from '../services';
 import GuestNavMenu from './guestnavmenu';

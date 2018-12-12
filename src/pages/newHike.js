@@ -82,7 +82,7 @@ class NewHike extends Component {
             {(this.state.hikeList) && this.state.hikeList.map( (el, index) => {
                 return(
                 <div className="trailHead" key={index} onClick={this.handleSelect.bind(this, el)}>
-                  <h5>Result {index+1}.</h5>
+                  <h5>Trail {index+1}</h5>
                   <ul>
                     <li>Trailhead: {el.name}</li>
                     <li>Location: {el.location}</li>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Home from '../pages/home'
 import NavMenu from '../components/navmenu'
-import { Jumbotron } from 'react-bootstrap'
+import { Jumbotron, Carousel } from 'react-bootstrap'
 import HikeCard from '../components/hikeCard'
-import '../App.css';
 import '../assets/dashboard.css';
 import HikeList from '../components/hikeList'
+import FriendsHikeList from '../components/friendsHikeList'
 import AuthService from '../services'
 import { getUserHikes, getProfile, getFriendHikes} from '../api'
 import ProfileCard from '../components/profileCard'
@@ -25,6 +25,7 @@ class Dashboard extends Component {
   }
 
   componentDidMount(){
+
     getUserHikes(this.state.userId)
     .then(APIhikes => {
       this.setState({
@@ -52,21 +53,22 @@ class Dashboard extends Component {
     let { profileInfo } = this.state
     return (
       <div>
-        <Jumbotron>
-        </Jumbotron>
+        <Jumbotron></Jumbotron>
         <FollowFriend userId={this.state.userId}/>
-        {(this.state.profileInfo) && <ProfileCard profileInfo={this.state.profileInfo} />}
-          <div>
-          </div>
-            <div className="HikeList">
-              <div className="cardComponent">
-              {(this.state.successDelete) && <strong>Hike Deleted</strong> }
-                {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
+            <div className="hikesContainer">
+              <div>
+                <div>
+                  {(this.state.successDelete) && <strong>Hike Deleted</strong> }
+                  {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
+                </div>
               </div>
-              <div className="cardComponent">
-                {(this.state.friendHikes) && <HikeList userHikes={this.state.friendHikes}/>}
+
+              <div>
+                <div>
+                  {(this.state.friendHikes) && <FriendsHikeList friendsHikes={this.state.friendHikes}/>}
+                </div>
               </div>
-          </div>
+            </div>
       </div>
     );
   }

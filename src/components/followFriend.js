@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { followFriend } from '../api'
 
 export default class FollowFriend extends Component {

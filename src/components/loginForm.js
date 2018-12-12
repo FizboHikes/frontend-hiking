@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { Redirect, Link } from 'react-router-dom';
 import AuthService from '../services';
 
