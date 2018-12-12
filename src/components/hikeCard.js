@@ -17,7 +17,6 @@ class HikeCard extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'}
 
-                console.log(hike)
     return(
       <div className="hikeCard" style={style}>
         <div className="overlay">

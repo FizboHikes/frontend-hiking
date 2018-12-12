@@ -1,8 +1,9 @@
+import AuthService from '../services'
 const BASE = 'http://localhost:3000'
-
+const auth = new AuthService()
 
 let getUserHikes= function(user_id){
-  return fetch(`${BASE}/users/${user_id}/hikes`)
+  return auth.authFetch(`${BASE}/users/${user_id}/hikes`)
     .then((resp) => {
       let json = resp.json()
       console.log(json);
@@ -13,7 +14,7 @@ let getUserHikes= function(user_id){
     }
 
 let getFriendHikes= function(user_id){
-  return fetch(`${BASE}/users/${user_id}/friend_hikes`)
+  return auth.authFetch(`${BASE}/users/${user_id}/friend_hikes`)
     .then((resp) => {
       let json = resp.json()
       console.log(json);
@@ -25,7 +26,7 @@ let getFriendHikes= function(user_id){
 
 
 let getEmail = function(user_id){
-  return fetch(BASE + '/apartments/email/' + user_id)
+  return auth.authFetch(BASE + '/apartments/email/' + user_id)
     .then((resp) => {
       let json = resp.json()
       console.log(json);
@@ -37,28 +38,19 @@ let getEmail = function(user_id){
 
 
 let createHike = function(hike) {
-  // console.log(hike);
-  return fetch(BASE + '/hikes', {
+  return auth.authFetch(BASE + '/hikes', {
     body: JSON.stringify(hike),
-    headers: {
-      'Content-Type': 'application/json'
-    },
     method: "POST"
   })
     .then((resp) => {
-      console.log("This is the creatHike: ", resp);
-
       let json = resp.json()
       return json
     })
 }
 
 let followFriend = function(email, id) {
-  return fetch(BASE + '/users/' + id + '/add_friend', {
+  return auth.authFetch(BASE + '/users/' + id + '/add_friend', {
     body: JSON.stringify(email),
-    headers: {
-      'Content-Type': 'application/json'
-    },
     method: "POST"
   })
   .then((resp) => {
@@ -67,8 +59,7 @@ let followFriend = function(email, id) {
 }
 
 let deleteHike = function(id) {
-  console.log(id);
-  return fetch(BASE + '/hikes/' + id, {
+  return auth.authFetch(BASE + '/hikes/' + id, {
     method: "DELETE"
   })
   .then((resp) => {
@@ -77,8 +68,7 @@ let deleteHike = function(id) {
 }
 
 let getHike = function(id) {
-  console.log("this is my id in the getHike function " + id)
-  return fetch(BASE + '/hikes/' + id)
+  return auth.authFetch(BASE + '/hikes/' + id)
     .then((resp) => {
       let json = resp.json()
       console.log(json);
@@ -87,7 +77,7 @@ let getHike = function(id) {
 }
 
 let getProfile = function(id) {
-  return fetch(BASE + '/profiles/' + id)
+  return auth.authFetch(BASE + '/profiles/' + id)
     .then(resp => {
       let json = resp.json()
       console.log(json);

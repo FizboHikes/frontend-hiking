@@ -32,6 +32,7 @@ class Dashboard extends Component {
         userHikes: APIhikes
       })
     })
+    .catch(error => console.log("This is error message from getUSerHikes", error))
 
     getProfile(this.state.userId)
       .then( APIUser => {
@@ -39,6 +40,8 @@ class Dashboard extends Component {
           profileInfo: APIUser
         })
       })
+      .catch(error => console.log(error))
+
 
     getFriendHikes(this.state.userId)
       .then( APIFriendHikes => {
@@ -47,13 +50,15 @@ class Dashboard extends Component {
           friendHikes: APIFriendHikes
         })
       })
+      .catch(error => console.log(error))
+
   }
 
   render() {
     let { profileInfo } = this.state
     return (
       <div className="dashboardPage">
-      
+
             <div className="hikesContainer">
               <div>
                 <div>

@@ -1,15 +1,18 @@
 
 
-.row {
+.registerPage {
   border: 1px solid black;
-  margin: auto;
   background-color: rgba(244, 244, 233, 0.2);
-  width: auto;
   padding-bottom: 20px;
+  display: block;
+
 
 }
 
-
+.registerForm {
+  display: inline-block;
+  vertical-align: top;
+}
 
 input {
   width: 200px;
@@ -24,8 +27,16 @@ input {
 }
 
 .missionStatement {
-  width: auto;
-  float: right;
-  margin: auto;
   padding: 9px;
+  display: inline-block;
+  vertical-align: top;
+  width: 600px;
+  font-size: 20px;
+  margin-right: 200px;
+}
+
+.innerRegister {
+  display: flex;
+  flex-direction: column;
+
 }

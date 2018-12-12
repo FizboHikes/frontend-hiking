@@ -3,7 +3,6 @@ import { Redirect, Link } from 'react-router-dom'
 import { Alert, Grid, Col, Row, Button} from 'react-bootstrap'
 import AuthService from '../services'
 import '../assets/home.css'
-import '../assets/cloud.css'
 class RegisterForm extends Component {
 	constructor(props) {
 		super(props)
@@ -25,68 +24,41 @@ class RegisterForm extends Component {
 		let { email, password } = this.state.form.user
 		console.log(this.auth.loggedIn())
 		return (
-			<div class="bg">
-  <div class="mountain">
-    <div class="mountain-top">
-      <div class="mountain-cap-1"></div>
-      <div class="mountain-cap-2"></div>
-      <div class="mountain-cap-3"></div>
-    </div>
-  </div>
-	<div>
-		<Grid>
-		<form onSubmit={this.onSubmit}>
-			<Row>
-				<Col>
+		<div className="registerPage">
+			<form onSubmit={this.onSubmit}>
 					<div className="missionStatement">
 					ShareHike’s mission is to connect with your friends and family through your personal hiking adventure.
 
-					- Share your private hikes with your close friends.
+					<img src="https://cdn4.iconfinder.com/data/icons/health-bold-line-2/48/75-512.png" style={{width: 20}} /> Share your private hikes with your close friends.
 					- Share experiences through tips and photos.
 					- Find new trails and expand your private collection.
 					</div>
-				</Col>
-				<Col sm={2} md={2} lg={2}>
-					<h2>Welcome!</h2>
-					<h2>Register here.</h2>
-					<input
-						type="email"
-						name="email"
-						value={email}
-						onChange={this.onChange}
-					/>
-					{this.state.errors.email && <div>Error: Email  {this.state.errors.email[0]}</div>}
-					<input
-						type="password"
-						name="password"
-						value={password}
-						onChange={this.onChange}
-					/>
-					{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-					<button className="btn btn-primary">
-						Register
-					</button>
-				</Col>
-			</Row>
+
+				<div className="registerForm">
+					<div className="innerRegister">
+						<h2>Welcome!</h2>
+						<h2>Register here.</h2>
+						<input
+							type="email"
+							name="email"
+							value={email}
+							onChange={this.onChange}
+						/>
+						{this.state.errors.email && <div>Error: Email  {this.state.errors.email[0]}</div>}
+						<input
+							type="password"
+							name="password"
+							value={password}
+							onChange={this.onChange}
+						/>
+						{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
+						<button className="btn btn-primary">
+							Register
+						</button>
+					</div>
+				</div>
 			</form>
-		</Grid>
-	</div>
-  <div class="mountain-two">
-    <div class="mountain-top">
-      <div class="mountain-cap-1"></div>
-      <div class="mountain-cap-2"></div>
-      <div class="mountain-cap-3"></div>
-    </div>
-  </div>
-   <div class="mountain-three">
-    <div class="mountain-top">
-      <div class="mountain-cap-1"></div>
-      <div class="mountain-cap-2"></div>
-      <div class="mountain-cap-3"></div>
-    </div>
-  </div>
-  <div class="cloud"></div>
-</div>
+		</div>
 
 		)
 	}
