@@ -51,6 +51,7 @@ main {
   height: 70vh;
   overflow:auto;
   color: white;
+  cursor: pointer;
 }
 
 .trailList h5 {

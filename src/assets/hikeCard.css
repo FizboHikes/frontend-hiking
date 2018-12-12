@@ -38,5 +38,6 @@
 span {
   position: absolute;
   right: 5px;
-  top: -40px;
+  top: -45px;
+  cursor: pointer;
 }

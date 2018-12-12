@@ -127,7 +127,6 @@ class NewHike extends Component {
               </form>
 
             </main>}
-            {(this.state.newHikeSuccess) && <Redirect to="/dashboard" />}
       </div>
     );
     }
@@ -145,6 +144,9 @@ class NewHike extends Component {
         newHikeSuccess: true
       })
     })
+      .then( () => {
+        this.props.history.push('/dashboard')
+      })
     // .then( () => {
     //   console.log(this.state)
     // })
