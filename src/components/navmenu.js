@@ -27,9 +27,9 @@ class NavMenu extends Component {
           Logged In as:{(this.props.user.email) ? this.props.user.email : "Fizbo"}
         </Navbar.Text>
         <Navbar.Text> <a href="/dashboard"> My Dashboard  </a> </Navbar.Text>
-        <Navbar.Text> <a onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
 
         <Navbar.Text> <a href="/hikes/new"> Create Hike  </a> </Navbar.Text>
+        <Navbar.Text> <a onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
         <Navbar.Text pullRight></Navbar.Text>
 
       </Navbar.Collapse>

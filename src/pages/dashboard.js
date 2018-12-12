@@ -61,6 +61,7 @@ class Dashboard extends Component {
 
             <div className="hikesContainer">
               <div>
+                <h1>My Hikes </h1>
                 <div>
                   {(this.state.successDelete) && <strong>Hike Deleted</strong> }
                   {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
@@ -68,6 +69,7 @@ class Dashboard extends Component {
               </div>
 
               <div>
+              <h1>Friends I Follow</h1>
               <FollowFriend userId={this.state.userId}/>
                 <div>
                   {(this.state.friendHikes) && <FriendsHikeList friendsHikes={this.state.friendHikes}/>}

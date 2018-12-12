@@ -1,0 +1,124 @@
+@media only screen and (min-width: 768px) {
+  .showHikeImg {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    width: cover;
+    position: relative;
+    overflow:auto;
+  }
+  .img-thumbnail {
+    width: 100%;
+    height: auto;
+
+    overflow: auto;
+  }
+  /* img {
+    background-size: cover;
+    height: 200px;
+  } */
+
+  /* #clip{
+    position: absolute;
+    clip: rect(100px, 400px, 500px, 10px);
+  } */
+
+  .showHikeContainer {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    overflow:auto;
+  }
+
+  .showHikeText {
+    margin-right: 10px;
+    margin-left: 20px;
+    max-width: 400px;
+  }
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#showHikeButton {
+
+  display: flex;
+
+}
+
+@media only screen and (max-width: 768px) {
+  .showHikeImg {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .showHikeContainer {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .img-thumbnail {
+    width: 100%;
+    height: auto;
+
+  }
+
+  .showHikeText {
+    margin-right: 10px;
+    margin-left: 20px;
+    max-width: 400px;
+    margin-top: 0px;
+  }
+  a {
+    color: white;
+  }
+
+  #showHikeButton {
+    margin: auto;
+    display: flex;
+
+  }
+}
+
+
+
+
+@media only screen and (max-width: 425px) {
+  .showHikeImg {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .showHikeContainer {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .img-thumbnail {
+    width: 100%;
+    height: auto;
+
+  }
+
+  .showHikeText {
+    margin-right: 10px;
+    margin-left: 20px;
+    max-width: 100%;
+    margin-top: 0px;
+  }
+  a {
+    color: white;
+  }
+
+  #showHikeButton {
+    margin: auto;
+    display: flex;
+
+  }
+}
