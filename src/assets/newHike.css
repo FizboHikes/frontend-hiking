@@ -1,29 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Kalam');
 
-.createHikeFrom {
+.createHikeForm {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px double orange;
+  border-radius: 15px;
+  padding: 15px;
+  background-image: linear-gradient(rgba(41, 41, 163, .3), rgba(255, 117, 26, .3));
 }
 
+
 main {
-  margin-left: 30px;
+  margin: 15px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .hikeInputForm {
   display: flex;
   flex-direction: column;
+
+
 }
 
-input.hikeInput {
-  margin: 5px 10px;
+.hikeInput {
+  max-width: 800px;
+  min-width: 500px;
 }
+
+.hikeInputForm button{
+  max-width: 100px;
+  color:rgb(230, 138, 0);
+
+}
+/* input.hikeInput {
+  margin: 5px 10px;
+} */
 
 .trailList {
   display: flex;
   flex-direction: column;
   margin: 15px 10px;
-  background-color: rgba(41, 41, 163);
-  width: 300px;
+  background-image: linear-gradient(rgba(41, 41, 163, .3), rgba(255, 117, 26, .3)
+  );
+    width: 300px;
   padding: 10px 10px;
   height: 70vh;
   overflow:auto;
@@ -37,11 +59,22 @@ input.hikeInput {
 .newHikePage {
   display: flex;
   flex-direction: row;
-  background-image: url("https://images.wallpaperscraft.com/image/milky_way_august_sky_fir-trees_trees_night_45544_1920x1080.jpg");
+    background-image: url("https://images.unsplash.com/photo-1508796079212-a4b83cbf734d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
+
+.newHikePage img{
+  max-height: 300px;
+  max-width: 600px;
+  border: solid 1px rgb(230, 138, 0);
+  border-radius: 10px;
+  padding: 8px;
+  background-image: linear-gradient(rgba(41, 41, 163, .3), rgba(255, 117, 26, .3));
+}
+
+
 
 .searchHike {
   margin: 15px;
@@ -49,12 +82,14 @@ input.hikeInput {
   border-style: double;
   padding: 8px;
   border-radius: 10px;
-  background-color: rgba(41, 41, 163, .5)
+  background-image: linear-gradient(rgba(41, 41, 163, .3), rgba(255, 117, 26, .3)
+);
 }
 
+
 .searchHike:hover {
-  background-color: rgba(41, 41, 163, .60)
-}
+  background-image: linear-gradient(rgba(41, 41, 163, .4), rgba(255, 117, 26, .4)
+);}
 
 .trailHead {
   color:white;
