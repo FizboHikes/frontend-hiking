@@ -32,13 +32,21 @@ main {
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  background-color: rgba(265, 265, 265, .3);
+  border-radius: 15px;
+  padding: 7px;
+  align-items: center;
+}
+
+input::-webkit-input-placeholder{
+  color: white;
 }
 
 .hikeInput {
   max-width: 800px;
   min-width: 500px;
-  background-image: linear-gradient(rgba(41, 41, 163, .3), rgba(255, 117, 26, .3));
-  background-color: rgba(41, 41, 163, .5);
+  /* background-image: linear-gradient(rgba(41, 41, 163, .3), rgba(255, 117, 26, .3)); */
+  background-color: rgba(41, 41, 163, .4);
   color: white;
 }
 
@@ -76,6 +84,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  justify-content: center;
 }
 
 .newHikePage img{
