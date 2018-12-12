@@ -11,7 +11,7 @@ export default class FollowFriend extends Component {
   render() {
     return (
       <div>
-      <input value={this.state.email} placeholder="Add a friend" onChange={this.handleChange}/>
+      <input className="followFriendInput" value={this.state.email} placeholder="Add a friend" onChange={this.handleChange}/>
       <button className="btn btn-success" onClick={this.handleFollow}>Follow Hiker</button>
       </div>
     )

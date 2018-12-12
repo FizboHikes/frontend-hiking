@@ -22,9 +22,10 @@ class HikeCard extends Component {
       <div className="hikeCard" style={style}>
         <div className="overlay">
           <div className="hikeCardText">
-          <h3>"{hike.hikename}"</h3>
+        <a href={"/hikes/" + hike.id}>  <h3>"{hike.hikename}"</h3>
           <p>{hike.trailhead}</p>
           <p>{hike.location}</p>
+        </a>
           {(!this.props.friend) && <span onClick= {this.handleDelete}>🗑</span>}
           </div>
         </div>
