@@ -97,7 +97,6 @@ class NewHike extends Component {
             {/* Adding form to create tips and descriptions */}
             {(hikeForm.trailhead) && <main className="createHikeForm">
               <form onSubmit={this.handleSubmit}>
-               <img src={hikeForm.image} className="searchHike"/>
               <div className= "hikeInputForm">
               <h2>{hikeForm.trailhead}</h2>
               <input className= "hikeInput" required
@@ -123,6 +122,7 @@ class NewHike extends Component {
                   onChange={this.onChange}
                 />
                 <button>Save</button>
+                <img src={hikeForm.image} className="searchHike"/>
                 </div>
               </form>
 
