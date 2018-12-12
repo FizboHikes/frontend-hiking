@@ -52,9 +52,8 @@ class Dashboard extends Component {
   render() {
     let { profileInfo } = this.state
     return (
-      <div>
-        <Jumbotron></Jumbotron>
-        <FollowFriend userId={this.state.userId}/>
+      <div className="dashboardPage">
+      
             <div className="hikesContainer">
               <div>
                 <div>
@@ -64,6 +63,7 @@ class Dashboard extends Component {
               </div>
 
               <div>
+              <FollowFriend userId={this.state.userId}/>
                 <div>
                   {(this.state.friendHikes) && <FriendsHikeList friendsHikes={this.state.friendHikes}/>}
                 </div>

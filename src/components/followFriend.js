@@ -12,7 +12,7 @@ export default class FollowFriend extends Component {
     return (
       <div>
       <input value={this.state.email} placeholder="Add a friend" onChange={this.handleChange}/>
-      <button onClick={this.handleFollow}>Follow Hiker</button>
+      <button className="btn btn-success" onClick={this.handleFollow}>Follow Hiker</button>
       </div>
     )
   }
