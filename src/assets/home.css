@@ -15,6 +15,18 @@
 	margin:auto;
 }
 
+.loginForm {
+  float: right;
+}
+
+.loginForm input {
+  height: 30px;
+}
+
+.loginForm button {
+  height: 30px;
+}
+
 input {
   width: 200px;
   margin: 5px;
@@ -33,7 +45,8 @@ input {
   vertical-align: top;
   width: auto;
   font-size: 20px;
-
+  margin-right: 200px;
+  margin-left: 30px;
 }
 
 .innerRegister {

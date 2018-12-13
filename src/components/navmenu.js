@@ -18,16 +18,15 @@ class NavMenu extends Component {
       <Navbar className="Navbar">
       <Navbar.Header>
         <Navbar.Brand pullLeft>
-          <a href="/home"><img style={{ marginTop: -28}} src={require('../assets/fizbologo.png')} /></a>
+          <a href="/home"><img className="coolIcon" src={require('../assets/fizbologo.png')} /></a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
-      <Navbar.Collapse>
-        <Navbar.Text> <a className="navLink" href="/dashboard"> My Dashboard  </a> </Navbar.Text>
+      <Navbar.Collapse pullRight>
+      <Navbar.Text pullRight> <a className="navLink" onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
+        <Navbar.Text pullRight> <a className="navLink" href="/dashboard"> My Dashboard  </a> </Navbar.Text>
 
-        <Navbar.Text> <a className="navLink" href="/hikes/new"> Create Hike  </a> </Navbar.Text>
-        <Navbar.Text> <a className="navLink" onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
-        <Navbar.Text pullRight></Navbar.Text>
+        <Navbar.Text pullRight> <a className="navLink" href="/hikes/new"> Create Hike  </a> </Navbar.Text>
 
       </Navbar.Collapse>
     </Navbar>

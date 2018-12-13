@@ -56,6 +56,8 @@ class Dashboard extends Component {
 
   render() {
     let { profileInfo } = this.state
+    console.log("USERHIKES", this.state.userHikes)
+    console.log("FRIENDHIKES", this.state.friendHikes)
     return (
       <div>
       <div  className="image"></div>
