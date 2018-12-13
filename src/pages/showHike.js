@@ -6,8 +6,8 @@ export default class ShowHike extends Component {
   constructor(props){
     super(props)
     this.state = {
-      hike: undefined
-
+      hike: undefined,
+      isMyHike: false
     }
   }
   componentDidMount() {
@@ -15,13 +15,14 @@ export default class ShowHike extends Component {
    console.log("this is the params id " +id);
    getHike(id)
    .then((hike) => {
-     this.setState({hike})
+
+     this.setState({hike: hike, isMyHike: (this.props.userId == hike.user_id)})
    })
  }
 
   render() {
     let { hike } = this.state
-    console.log(hike)
+    console.log(this.state)
     if (this.state.hike){
       return(
         <div className="showHikeContainer">
@@ -39,7 +40,7 @@ export default class ShowHike extends Component {
             <p>Difficulty: {hike.difficulty}</p>
             <p>Ascent: {hike.ascent}</p>
             <p>Max Elevation: {hike.high}</p>
-            <p>Hike By: "Inser User Email Here"</p>
+            {(!this.state.isMyHike) && <p> Hike By: {}</p>}
             <button className="btn btn-primary"><a href="/dashboard"> Back to Dashboard </a> </button>
           </div>
         </div>

@@ -16,7 +16,21 @@ class HikeCard extends Component {
     let style = {backgroundImage: `url(${(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'}
-
+    if (this.props.friend) {
+      return(
+        <div className="hikeCard" style={style}>
+          <div className="overlay">
+            <div className="hikeCardText">
+          <a href={"/hikes/" + hike[0].id}>  <h3>"{hike[0].hikename}"</h3>
+            <p>{hike[0].trailhead}</p>
+            <p>{hike[0].location}</p>
+            <p>Hiker: {hike[1]}</p>
+          </a>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
     return(
       <div className="hikeCard" style={style}>
         <div className="overlay">
@@ -25,11 +39,11 @@ class HikeCard extends Component {
           <p>{hike.trailhead}</p>
           <p>{hike.location}</p>
         </a>
-          {(!this.props.friend) && <span onClick= {this.handleDelete}>🗑</span>}
+          <span onClick= {this.handleDelete}>🗑</span>
           </div>
         </div>
       </div>
-    )
+    )}
   }
   handleDelete = (e) => {
     e.preventDefault()
