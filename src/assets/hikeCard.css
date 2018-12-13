@@ -41,7 +41,7 @@ a:link {
 }
 
 
-span {
+.hikeCard span {
   position: absolute;
   right: 5px;
   top: -45px;
