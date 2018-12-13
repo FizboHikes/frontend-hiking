@@ -57,11 +57,12 @@ class Dashboard extends Component {
   render() {
     let { profileInfo } = this.state
     return (
+      <div>
+      <div  className="image"></div>
       <div className="dashboardPage">
-
             <div className="hikesContainer">
               <div>
-                <h1>My Hikes </h1>
+                <h1>MY HIKES </h1>
                 <div>
                   {(this.state.successDelete) && <strong>Hike Deleted</strong> }
                   {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
@@ -69,13 +70,14 @@ class Dashboard extends Component {
               </div>
 
               <div>
-              <h1>Friends I Follow</h1>
+              <h1>TRAILBLAZERS I FOLLOW</h1>
               <FollowFriend userId={this.state.userId}/>
                 <div>
                   {(this.state.friendHikes) && <FriendsHikeList friendsHikes={this.state.friendHikes}/>}
                 </div>
               </div>
             </div>
+      </div>
       </div>
     );
   }

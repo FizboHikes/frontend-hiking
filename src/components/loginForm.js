@@ -72,9 +72,9 @@ class LoginForm extends Component {
         this.setState({
           loginSuccess: true
         })
-
       }
     })
+    .catch( error => alert("error"))
   }
 }
 

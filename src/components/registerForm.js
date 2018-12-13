@@ -27,11 +27,11 @@ class RegisterForm extends Component {
 		<div className="registerPage">
 			<form onSubmit={this.onSubmit}>
 					<div className="missionStatement">
-					ShareHike’s mission is to connect with your friends and family through your personal hiking adventure.
-
-					<img src="https://cdn4.iconfinder.com/data/icons/health-bold-line-2/48/75-512.png" style={{width: 20}} /> Share your private hikes with your close friends.
-					- Share experiences through tips and photos.
-					- Find new trails and expand your private collection.
+					Our mission is to connect with your friends and family through your personal hiking adventure.
+					<br/>
+					<br/><img src="https://cdn4.iconfinder.com/data/icons/health-bold-line-2/48/75-512.png" style={{width: 20, marginRight:5}} />   Share your private hikes with your close friends.<br/>
+					<br/><img src="https://cdn1.iconfinder.com/data/icons/essentials-pack/96/paper_article_news_document_journal-512.png" style={{width:20, marginRight:5}}/>    Create experiences through tips and photos.<br/><br/>
+					<img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/67-512.png" style={{width: 20, marginRight:5}} />    Find new trails and expand your private collection.
 					</div>
 
 				<div className="registerForm">

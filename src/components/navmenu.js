@@ -23,9 +23,6 @@ class NavMenu extends Component {
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        <Navbar.Text pullRight>
-          Logged In as:{(this.props.user.email) ? this.props.user.email : "Fizbo"}
-        </Navbar.Text>
         <Navbar.Text> <a href="/dashboard"> My Dashboard  </a> </Navbar.Text>
 
         <Navbar.Text> <a href="/hikes/new"> Create Hike  </a> </Navbar.Text>

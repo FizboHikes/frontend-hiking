@@ -75,9 +75,11 @@ class NewHike extends Component {
     let {hikeForm}= this.state
     let style = "trailList"
     return (
+      <div>
+      <div className="hikeImage"></div>
       <div className = "newHikePage">
         <div className="searchHike">
-          <h2>Trailblaze</h2>
+          <h2>TRAILBLAZE</h2>
           <input type="text" onChange={this.handleChange} value={this.state.city} required></input>
           <button type="submit" onClick={this.submitCity}>Submit City</button>
           <div className = {(this.state.hikeList) && style} >
@@ -97,7 +99,7 @@ class NewHike extends Component {
             {/* Adding form to create tips and descriptions */}
             {(hikeForm.trailhead) && <main className="createHikeForm">
               <form onSubmit={this.handleSubmit}>
-            
+
               <div className= "hikeInputForm">
               <h2>{hikeForm.trailhead}</h2>
               <input className= "hikeInput" required
@@ -127,6 +129,7 @@ class NewHike extends Component {
               </form>
 
             </main>}
+            </div>
       </div>
     );
     }
