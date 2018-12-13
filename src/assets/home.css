@@ -19,12 +19,11 @@ input {
   margin: 5px;
 }
 
-
 .btn{
   width: 200px;
   margin: 5px;
   text-align: center;
-
+  background-color: rgb(230, 138, 0);
 }
 
 .missionStatement {

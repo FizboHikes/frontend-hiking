@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navbar } from 'react-bootstrap';
 import AuthService from '../services';
 import GuestNavMenu from './guestnavmenu';
-
+import '../assets/dashboard.css'
 
 
 class NavMenu extends Component {
@@ -18,15 +18,15 @@ class NavMenu extends Component {
       <Navbar className="Navbar">
       <Navbar.Header>
         <Navbar.Brand pullLeft>
-          <a href="/home"><img style={{height: 70, marginTop: -15}} src={require('../assets/fizbologo.png')} /></a>
+          <a href="/home"><img style={{height: 70, marginTop: -28}} src={require('../assets/fizbologo.png')} /></a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        <Navbar.Text> <a href="/dashboard"> My Dashboard  </a> </Navbar.Text>
+        <Navbar.Text> <a className="navLink" href="/dashboard"> My Dashboard  </a> </Navbar.Text>
 
-        <Navbar.Text> <a href="/hikes/new"> Create Hike  </a> </Navbar.Text>
-        <Navbar.Text> <a onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
+        <Navbar.Text> <a className="navLink" href="/hikes/new"> Create Hike  </a> </Navbar.Text>
+        <Navbar.Text> <a className="navLink" onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
         <Navbar.Text pullRight></Navbar.Text>
 
       </Navbar.Collapse>

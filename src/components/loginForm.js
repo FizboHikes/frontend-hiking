@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import AuthService from '../services';
-
+import '../assets/home.css'
 
 //Login to be renamed
 class LoginForm extends Component {
@@ -42,7 +42,7 @@ class LoginForm extends Component {
           // placeholder={password}
         />
         {this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-        <button>Login</button>
+        <button style={{backgroundColor: "rgb(230, 138, 0)"}}>Login</button>
       </form>
 
     </main>

@@ -14,7 +14,7 @@ class GuestNavMenu extends Component {
         <Navbar className="Navbar">
           <Navbar.Header>
             <Navbar.Brand pullLeft>
-              <a href="/home"><img style={{height: 70, marginTop: -15}} src={require('../assets/fizbologo.png')} /></a>
+              <a href="/home"><img style={{height: 70, marginTop: -28}} src={require('../assets/fizbologo.png')} /></a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
