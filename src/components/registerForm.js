@@ -41,6 +41,7 @@ class RegisterForm extends Component {
 						<h2 id="welcomeH2">Welcome!</h2>
 						<h2 id="welcomeH2">Join Up Here!</h2>
 						<input
+							className= "registerInput"
 							type="email"
 							name="email"
 							value={email}
@@ -48,13 +49,14 @@ class RegisterForm extends Component {
 						/>
 						{this.state.errors.email && <div>Error: Email  {this.state.errors.email[0]}</div>}
 						<input
+							className= "registerInput"
 							type="password"
 							name="password"
 							value={password}
 							onChange={this.onChange}
 						/>
 						{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-						<button className="btn btn-primary">
+						<button className="joinUp">
 							Join Up
 						</button>
 					</div>

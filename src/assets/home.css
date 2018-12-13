@@ -4,8 +4,11 @@
     background-color: rgba(244, 244, 233, 0.2);
     padding-bottom: 20px;
     display: block;
+  }
 
-
+  form {
+    display: flex;
+    justify-content: center;
   }
 
   .registerForm {
@@ -21,29 +24,18 @@
     height: 30px;
   }
 
-  .loginForm button {
-    height: 30px;
-  }
-
   input {
     width: 200px;
     margin: 5px;
   }
 
-<<<<<<< HEAD
-.loginForm button {
-  height: 30px;
-  background-color: rgb(230, 138, 0);
-  border-color: transparent;
-}
-=======
-  .btn{
-    width: 200px;
-    margin: 5px;
-    text-align: center;
+
+  .loginForm button {
+    height: 30px;
     background-color: rgb(230, 138, 0);
+    border-color: transparent;
   }
->>>>>>> 0ac7bbe11d90b25c9e124d0f461553aca0241c4b
+
 
   .missionStatement {
     padding: 9px;
@@ -51,18 +43,30 @@
     vertical-align: top;
     width: 600px;
     font-size: 20px;
-    margin-right: 150px;
+    margin-right: 10%;
     margin-left: 30px;
+  }
+
+  .joinUp {
+      background-color: rgb(230, 138, 0);
+      width: 100px;
+      margin: auto;
   }
 
   .innerRegister {
     display: flex;
     flex-direction: column;
-
+    margin-left: 10%;
   }
+  #welcomeH2{
+		margin:auto;
+    min-width: 200px;
+    text-align: center;
+    margin-bottom: 5px;
+	}
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 
   .missionStatement {
     padding: 9px;
@@ -88,7 +92,12 @@
   form{
     display: inline-flex;
     flex-direction: column;
+  }
 
+  .joinUp {
+      background-color: rgb(230, 138, 0);
+      width: 100px;
+      margin: auto;
   }
 
 	.registerForm {
@@ -100,6 +109,10 @@
 	#welcomeH2{
 		margin:auto;
 	}
+  .registerInput{
+    margin: auto;
+    margin-bottom: 5px;
+  }
 }
 
 @media only screen and (max-width: 425px) {

@@ -42,7 +42,7 @@ class LoginForm extends Component {
           // placeholder={password}
         />
         {this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-        <button style={{backgroundColor: "rgb(230, 138, 0)"}}>Login</button>
+        <button style={{backgroundColor: "rgb(230, 160, 0)"}}>Login</button>
       </form>
 
     </main>
