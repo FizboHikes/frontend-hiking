@@ -1,0 +1,26 @@
+
+.cardComponents {
+  /* border: 1px solid white; */
+  display: table-cell;
+  justify-content: center;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  margin: 10px 10px;
+  text-align: center;
+}
+
+
+
+.Formfield {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loginForm {
+  float: right;
+}
+
+p{
+  width:contain;
+}

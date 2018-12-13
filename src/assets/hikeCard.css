@@ -42,8 +42,8 @@ a:link {
 
 
 span {
-  position: absolute;
+  /* position: absolute;
   right: 5px;
   top: -45px;
-  cursor: pointer;
+  cursor: pointer; */
 }

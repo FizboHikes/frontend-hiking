@@ -38,8 +38,8 @@ class RegisterForm extends Component {
 
 				<div className="registerForm">
 					<div className="innerRegister">
-						<h2>Welcome!</h2>
-						<h2>Register here.</h2>
+						<h2 id="welcomeH2">Welcome!</h2>
+						<h2 id="welcomeH2">Join Up Here!</h2>
 						<input
 							type="email"
 							name="email"
@@ -55,7 +55,7 @@ class RegisterForm extends Component {
 						/>
 						{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
 						<button className="btn btn-primary">
-							Register
+							Join Up
 						</button>
 					</div>
 				</div>

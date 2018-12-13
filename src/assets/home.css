@@ -12,6 +12,7 @@
 .registerForm {
   display: inline-block;
   vertical-align: top;
+	margin:auto;
 }
 
 input {
@@ -30,13 +31,33 @@ input {
   padding: 9px;
   display: inline-block;
   vertical-align: top;
-  width: 600px;
+  width: auto;
   font-size: 20px;
-  margin-right: 200px;
+
 }
 
 .innerRegister {
   display: flex;
   flex-direction: column;
+	margin: auto;
+}
 
+
+@media only screen and (max-width: 1440px) {
+
+	.innerRegister {
+	  display: flex;
+	  flex-direction: column;
+		margin: auto;
+	}
+
+	.registerForm {
+	  display: inline-block;
+	  vertical-align: top;
+		margin-left:50px;
+	}
+
+	#welcomeH2{
+		margin:auto;
+	}
 }
