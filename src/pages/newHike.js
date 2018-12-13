@@ -80,8 +80,11 @@ class NewHike extends Component {
       <div className = "newHikePage">
         <div className="searchHike">
           <h2>TRAILBLAZE</h2>
-          <input type="text" onChange={this.handleChange} value={this.state.city} required></input>
-          <button type="submit" onClick={this.submitCity}>Submit City</button>
+          <input
+          className="submitCityInput"
+          type="text" onChange={this.handleChange} value={this.state.city} required>
+          </input>
+          <button className="submitCityButton"type="submit" onClick={this.submitCity}>Submit City</button>
           <div className = {(this.state.hikeList) && style} >
             {(this.state.hikeList) && this.state.hikeList.map( (el, index) => {
                 return(
@@ -109,7 +112,7 @@ class NewHike extends Component {
                 value={hikeForm.hikename}
                 onChange={this.onChange}
               />
-                <input className= "hikeInput" required
+                <textarea className= "hikeInput" required
                   type="comments"
                   name="comments"
                   placeholder= "Hike Comments"
@@ -117,7 +120,7 @@ class NewHike extends Component {
                   onChange={this.onChange}
                 />
 
-                <input className= "hikeInput" required
+                <textarea className= "hikeInput" required
                   type="tips"
                   name="tips"
                   placeholder= "Hike Tips"
