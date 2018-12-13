@@ -12,7 +12,7 @@
 .registerForm {
   display: inline-block;
   vertical-align: top;
-	margin:auto;
+	/* margin:auto; */
 }
 
 .loginForm {

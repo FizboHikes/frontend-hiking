@@ -26,12 +26,7 @@
 }
 .Navbar {
   margin-bottom: 0px;
-<<<<<<< HEAD
-  /* height: 75px; */
-  padding-top: 5px;
-=======
   padding-top: 25px;
->>>>>>> e83feeec83038e4908760840e7df6f01c096a3d5
   display: flex;
   justify-content: center;
 }
