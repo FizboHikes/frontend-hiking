@@ -5,12 +5,13 @@
   background-color: rgba(244, 244, 233, 0.2);
   padding-bottom: 20px;
   display: block;
+
+
 }
 
 .registerForm {
   display: inline-block;
   vertical-align: top;
-	margin:auto;
 }
 
 .loginForm {
@@ -41,24 +42,29 @@ input {
   padding: 9px;
   display: inline-block;
   vertical-align: top;
-  width: auto;
+  width: 600px;
   font-size: 20px;
-  margin-right: 200px;
+  margin-right: 150px;
   margin-left: 30px;
 }
 
 .innerRegister {
   display: flex;
   flex-direction: column;
-	margin: auto;
+
 }
 
-.registerFormTag {
-  display: flex;
-  padding-right: 100px;
-}
+@media only screen and (max-width: 426px) {
 
-@media only screen and (max-width: 1440px) {
+  .missionStatement {
+    padding: 9px;
+    display: inline-block;
+    vertical-align: top;
+    width: 600px;
+    font-size: 20px;
+    margin-right: 200px;
+    margin-left: 30px;
+  }
 
 	.innerRegister {
 	  display: flex;

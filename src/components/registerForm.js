@@ -27,7 +27,7 @@ class RegisterForm extends Component {
 
 		return (
 		<div className="registerPage">
-			<form className="registerFormTag" onSubmit={this.onSubmit}>
+			<form  onSubmit={this.onSubmit}>
 					<div className="missionStatement">
 					Our mission is to connect with your friends and family through your personal hiking adventure.
 					<br/>
