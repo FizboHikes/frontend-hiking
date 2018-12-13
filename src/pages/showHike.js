@@ -15,14 +15,14 @@ export default class ShowHike extends Component {
    console.log("this is the params id " +id);
    getHike(id)
    .then((hike) => {
-
+     console.log(hike);
      this.setState({hike: hike, isMyHike: (this.props.userId == hike.user_id)})
    })
  }
 
   render() {
     let { hike } = this.state
-    console.log(this.state)
+    console.log(this.state.hike)
     if (this.state.hike){
       return(
         <div className="showHikeContainer">
@@ -40,7 +40,7 @@ export default class ShowHike extends Component {
             <p>Difficulty: {hike.difficulty}</p>
             <p>Ascent: {hike.ascent}</p>
             <p>Max Elevation: {hike.high}</p>
-            {(!this.state.isMyHike) && <p> Hike By: {}</p>}
+            {(!this.state.isMyHike) && <p> Hike By: {this.state.hike.user.email}</p>}
             <button className="btn btn-primary"><a href="/dashboard"> Back to Dashboard </a> </button>
           </div>
         </div>

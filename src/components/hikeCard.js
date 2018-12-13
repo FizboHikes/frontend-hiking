@@ -21,10 +21,10 @@ class HikeCard extends Component {
         <div className="hikeCard" style={style}>
           <div className="overlay">
             <div className="hikeCardText">
-          <a href={"/hikes/" + hike[0].id}>  <h3>"{hike[0].hikename}"</h3>
-            <p>{hike[0].trailhead}</p>
-            <p>{hike[0].location}</p>
-            <p>Hiker: {hike[1]}</p>
+          <a href={"/hikes/" + hike.id}>  <h3>"{hike.hikename}"</h3>
+            <p>{hike.trailhead}</p>
+            <p>{hike.location}</p>
+            <p>Hiker: {hike.user.email}</p>
           </a>
             </div>
           </div>
