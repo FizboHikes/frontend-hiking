@@ -15,7 +15,7 @@ class App extends Component {
     this.state={
       authenticated: this.auth.loggedIn(),
       user: {},
-      userId: this.auth.getUserId()
+      userId: (this.auth.loggedIn()) ? this.auth.getUserId() : undefined
     }
   }
 
