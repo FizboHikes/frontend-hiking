@@ -5,14 +5,12 @@
   background-color: rgba(244, 244, 233, 0.2);
   padding-bottom: 20px;
   display: block;
-
-
 }
 
 .registerForm {
   display: inline-block;
   vertical-align: top;
-	/* margin:auto; */
+	margin:auto;
 }
 
 .loginForm {
@@ -55,6 +53,10 @@ input {
 	margin: auto;
 }
 
+.registerFormTag {
+  display: flex;
+  padding-right: 100px;
+}
 
 @media only screen and (max-width: 1440px) {
 
