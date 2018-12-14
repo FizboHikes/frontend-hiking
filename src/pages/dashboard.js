@@ -45,7 +45,7 @@ class Dashboard extends Component {
 
     getFriendHikes(this.state.userId)
       .then( APIFriendHikes => {
-        console.log("these are my friend's hikes", APIFriendHikes)
+        // console.log("these are my friend's hikes", APIFriendHikes)
         this.setState({
           friendHikes: APIFriendHikes
         })
@@ -56,8 +56,6 @@ class Dashboard extends Component {
 
   render() {
     let { profileInfo } = this.state
-    console.log("USERHIKES", this.state.userHikes)
-    console.log("FRIENDHIKES", this.state.friendHikes)
     return (
       <div>
       <div  className="image"></div>
@@ -88,6 +86,7 @@ class Dashboard extends Component {
     this.setState({successDelete: true})
   }
 
+  
   // we can make a setInterval function or something that runs it once and then stops. or maybe a do while.
 }
 

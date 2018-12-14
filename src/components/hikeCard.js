@@ -5,6 +5,8 @@ import HikeList from './hikeList'
 import { Navbar, Grid, Row, Col, Thumbnail } from 'react-bootstrap';
 import "../assets/hikeCard.css"
 import { deleteHike } from '../api'
+import Ratings from 'react-ratings-declarative'
+
 
 class HikeCard extends Component {
   constructor(props){
@@ -22,6 +24,17 @@ class HikeCard extends Component {
           <div className="overlay">
             <div className="hikeCardText">
           <a href={"/hikes/" + hike.id}>  <h3>"{hike.hikename}"</h3>
+            {(hike.stars) &&<Ratings
+              rating={parseFloat(hike.stars)}
+              widgetDimensions="15px"
+              widgetSpacings="3px"
+            >
+            <Ratings.Widget widgetRatedColor="black" />
+            <Ratings.Widget widgetRatedColor="black" />
+            <Ratings.Widget widgetRatedColor="black" />
+            <Ratings.Widget widgetRatedColor="black" />
+            <Ratings.Widget widgetRatedColor="black" />
+            </Ratings>}
             <p>{hike.trailhead}</p>
             <p>{hike.location}</p>
             <p>Hiker: {hike.user.email}</p>
@@ -36,6 +49,17 @@ class HikeCard extends Component {
         <div className="overlay">
           <div className="hikeCardText">
         <a href={"/hikes/" + hike.id}>  <h3>"{hike.hikename}"</h3>
+        <Ratings
+          rating={parseFloat(hike.stars)}
+          widgetDimensions="15px"
+          widgetSpacings="3px"
+        >
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="black" />
+        </Ratings>
           <p>{hike.trailhead}</p>
           <p>{hike.location}</p>
         </a>

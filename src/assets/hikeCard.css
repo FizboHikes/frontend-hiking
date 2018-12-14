@@ -11,6 +11,11 @@
 .hikeCard p, .hikeCard h3 {
   width: 280px;
   color: black;
+  line-height: .8em;
+}
+
+.hikeCard h3{
+  margin-bottom: 10px;
 }
 
 .overlay {
@@ -21,7 +26,6 @@
   position:relative;
   top: -21px;
   transition: .5s ease;
-
 }
 
 .hikeCard:hover .overlay{
@@ -45,5 +49,5 @@ a:link {
   position: absolute;
   right: 5px;
   top: -45px;
-  cursor: pointer; 
+  cursor: pointer;
 }

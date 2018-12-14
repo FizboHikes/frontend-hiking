@@ -6,7 +6,7 @@ let getUserHikes= function(user_id){
   return auth.authFetch(`${BASE}/users/${user_id}/hikes`)
     .then((resp) => {
       let json = resp.json()
-      console.log(json);
+      // console.log(json);
       return json
     })
     .catch((error) =>
@@ -17,7 +17,7 @@ let getFriendHikes= function(user_id){
   return auth.authFetch(`${BASE}/users/${user_id}/friend_hikes`)
     .then((resp) => {
       let json = resp.json()
-      console.log(json);
+      // console.log(json);
       return json
     })
     .catch((error) =>
@@ -80,7 +80,7 @@ let getProfile = function(id) {
   return auth.authFetch(BASE + '/profiles/' + id)
     .then(resp => {
       let json = resp.json()
-      console.log(json);
+      // console.log(json);
       return json
     })
 }
