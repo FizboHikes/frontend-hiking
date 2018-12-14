@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { followFriend } from '../api'
+import { Alert } from 'react-bootstrap'
 
 
 export default class FollowFriend extends Component {
@@ -7,8 +8,8 @@ export default class FollowFriend extends Component {
     super(props)
     this.state= {
       email: '',
-      formSuccess: "",
-      errorMessage: {}
+      formSuccess: null,
+      errorMessage: null
     }
   }
   render() {
@@ -16,9 +17,9 @@ export default class FollowFriend extends Component {
 
     return (
       <div>
-        {(Object.keys(this.state.errorMessage).length > 0) ?
-          this.Capitalize(this.state.errorMessage.friend_id[0]) :
-          this.state.formSuccess
+        {(this.state.errorMessage) &&
+          <Alert bsStyle="warning">{this.state.errorMessage}</Alert>}
+          {this.state.formSuccess && <Alert bsStyle="success">{this.state.formSuccess} </Alert>
         }
       <form className="followFriendForm" onSubmit={this.handleFollow}>
         <input className="followFriendInput" value={this.state.email} placeholder="Add a friend" onChange={this.handleChange} required/>
@@ -43,9 +44,14 @@ export default class FollowFriend extends Component {
             errorMessage: {}
           })
         }else{
+          let message;
           console.log("HANDLEFOLLOW ERROR RESP", resp)
+          if (resp.errors.friend_id[0] == "has already been taken") {
+            message = "Already following this hiker"
+          }
           this.setState({
-            errorMessage: resp.errors
+            errorMessage: message,
+            formSuccess: null
           })
         }
       })
