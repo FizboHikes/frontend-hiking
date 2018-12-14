@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { followFriend } from '../api'
 import { Alert } from 'react-bootstrap'
-
+import '../assets/dashboard.css'
 
 export default class FollowFriend extends Component {
   constructor(props){
@@ -18,8 +18,8 @@ export default class FollowFriend extends Component {
     return (
       <div>
         {(this.state.errorMessage) &&
-          <Alert bsStyle="warning">{this.state.errorMessage}</Alert>}
-          {this.state.formSuccess && <Alert bsStyle="success">{this.state.formSuccess} </Alert>
+          <Alert className="followAlert" bsStyle="warning">{this.state.errorMessage}</Alert>}
+          {this.state.formSuccess && <Alert className="followAlert" bsStyle="success">{this.state.formSuccess} </Alert>
         }
       <form className="followFriendForm" onSubmit={this.handleFollow}>
         <input className="followFriendInput" value={this.state.email} placeholder="Add a friend" onChange={this.handleChange} required/>
@@ -41,13 +41,15 @@ export default class FollowFriend extends Component {
           console.log("HANDLEFOLLOW SUCCESS RESP", resp)
           this.setState({
             formSuccess: "Hiker Successfully Followed",
-            errorMessage: {}
+            errorMessage: null
           })
         }else{
           let message;
           console.log("HANDLEFOLLOW ERROR RESP", resp)
           if (resp.errors.friend_id[0] == "has already been taken") {
             message = "Already following this hiker"
+          } else if (resp.errors.friend[0] == "must exist") {
+            message = "This hiker is off the grid"
           }
           this.setState({
             errorMessage: message,

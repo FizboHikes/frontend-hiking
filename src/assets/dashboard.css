@@ -20,6 +20,13 @@
   filter: blur(5px)
 }
 
+.followAlert {
+  max-width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .Navbar {
   margin-bottom: 0px;
   padding-top: 25px;
