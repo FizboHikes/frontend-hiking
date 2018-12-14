@@ -22,8 +22,6 @@ export default class AuthService {
 	}
 
 	register = (user) => {
-		console.log("This is the user.");
-		console.log(user);
 		return this.authFetch(`${this.domain}/users`, {
 			method: "POST",
 			body: JSON.stringify(user),
@@ -31,7 +29,6 @@ export default class AuthService {
 		.then(statusResponse => {
 			let token = statusResponse.headers.get('Authorization')
 			// set a JWT token in local storage, taken out of response from API
-			console.log(token);
 			this.setToken(token)
 			//return json from response
 			return statusResponse.json()
@@ -65,7 +62,7 @@ export default class AuthService {
 	// The token is stored in the browser
 	setToken(token) {
 		if(token != null){
-			let parsedToken = token.split('.')[1]
+			let parsedToken = token.split(' ')[1]
 			localStorage.setItem('idtoken', parsedToken)
 		}
 	}
@@ -77,8 +74,7 @@ export default class AuthService {
 	}
 
 	getUserId = () => {
-		const token = decode(this.getToken(), {header:true});
-		console.log(token);
+		const token = decode(this.getToken());
 		return token.sub
 	}
 
@@ -91,7 +87,6 @@ export default class AuthService {
 		if (this.loggedIn()) {
 			headers['Authorization'] = 'Bearer ' + this.getToken()
 		}
-
 		return fetch(url, {
 			headers,
 			...options

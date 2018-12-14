@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { Navbar } from 'react-bootstrap';
 import AuthService from '../services';
 import GuestNavMenu from './guestnavmenu';
-
+import '../assets/dashboard.css'
 
 
 class NavMenu extends Component {
@@ -16,22 +15,18 @@ class NavMenu extends Component {
   render() {
     console.log("This is the props.user. in navmenu :", this.props.user)
     return(
-      <Navbar className="Navbar">
-      <Navbar.Header>
+      <Navbar className="Navbar" >
+      <Navbar.Header staticTop>
         <Navbar.Brand pullLeft>
-          <a href="/home">HikeVentures</a>
+          <a href="/home"><img className="coolIcon" src={require('../assets/fizbologo.png')} /></a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
-      <Navbar.Collapse>
-        <Navbar.Text pullRight>
-          Logged In as:{(this.props.user.email) ? this.props.user.email : "Fizbo"}
-        </Navbar.Text>
-        <Navbar.Text> <a href="/dashboard"> My Dashboard  </a> </Navbar.Text>
-        <Navbar.Text> <a onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
+      <Navbar.Collapse pullRight>
+      <Navbar.Text pullRight> <a className="navLink" onClick={this.handleClick.bind(this)} href="/home"> Log Out </a> </Navbar.Text>
+        <Navbar.Text pullRight> <a className="navLink" href="/dashboard"> My Dashboard  </a> </Navbar.Text>
 
-        <Navbar.Text> <a href="/hikes/new"> Create Hike  </a> </Navbar.Text>
-        <Navbar.Text pullRight></Navbar.Text>
+        <Navbar.Text pullRight> <a className="navLink" href="/hikes/new"> Create Hike  </a> </Navbar.Text>
 
       </Navbar.Collapse>
     </Navbar>

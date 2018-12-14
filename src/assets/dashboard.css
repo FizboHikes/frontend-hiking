@@ -1,11 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Kalam');
+
 .jumbotron {
   height: 400px;
   background-image: url("https://images.unsplash.com/photo-1468437012950-7d4960be6383?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2011&q=80");
   margin-top: 0px;
   background-size: cover;
-  width: 100%;
+}
+
+.image {
+  background-image: url("https://images.unsplash.com/photo-1526080676457-4544bf0ebba9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-repeat: no-repeat;
+  height:100%;
+  background-size: cover;
+  background-attachment: fixed;
+  position: absolute;
+  left:0;
+  right: 0;
+  z-index: -1;
+  filter: blur(5px)
 }
 
 .Navbar {
   margin-bottom: 0px;
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.Navbar a {
+  color:rgb(230, 138, 0);
+  padding-bottom: 50px;
+}
+
+.navLink {
+  font-size: 1.5em;
+}
+
+.coolIcon {
+  height: 85px;
+  margin-top: -37px;
+}
+
+.hikesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.hikeList {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 15px;
+  overflow:auto;
+}
+
+.hikeList::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.hikeList::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, .5)
+}
+
+h1{
+  font-family: "Kalam", sans-serif;
+  color:rgb(230, 138, 0);
+  text-shadow: 1px 1px rgba(2, 2, 29, .2);
+  text-decoration: underline;
+}
+
+.followFormFriend{
+
+  justify-content: center;
+}
+
+.followFriendInput {
+  height: 37px;
+  max-width: 90%;
+  margin: 5px;
+}
+
+#followFriendBtn {
+  max-width: 90%;
+}
+
+@media only screen and (max-width: 440px) {
+
+  .image {
+    background-image: url("https://images.unsplash.com/photo-1526080676457-4544bf0ebba9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    background-repeat: no-repeat;
+    height:105vh;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    left:0;
+    right: 0;
+    z-index: -1;
+    filter: blur(5px)
+  }
+
+  .followFormFriend {
+    align-items: center;
+  }
+
+  .followFriendInput {
+    height: 33px;
+    max-width: 250px;
+    margin: auto;
+    margin-bottom: 5px;
+  }
+
+  #followFriendBtn {
+    width: 173px;
+    margin: auto;
+  }
 }

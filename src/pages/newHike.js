@@ -66,6 +66,8 @@ class NewHike extends Component {
       this.setState({lat: lat, lon: lng})
     }).then( () =>
       this.getTrailHeads())
+      .catch(() =>
+        alert("Please enter a valid location"))
   }
 
 
@@ -73,30 +75,36 @@ class NewHike extends Component {
     let {hikeForm}= this.state
     let style = "trailList"
     return (
+      <div>
+      <div className="hikeImage"></div>
       <div className = "newHikePage">
-        <div>
-          <h2>Create Hike</h2>
-          <input type="text" onChange={this.handleChange} value={this.state.city}></input>
-          <button type="submit" onClick={this.submitCity}>Submit City</button>
+        <div className="searchHike">
+          <h2>TRAILBLAZE</h2>
+          <input
+          className="submitCityInput"
+          type="text" onChange={this.handleChange} value={this.state.city} required>
+          </input>
+          <button className="submitCityButton"type="submit" onClick={this.submitCity}>Submit City</button>
           <div className = {(this.state.hikeList) && style} >
             {(this.state.hikeList) && this.state.hikeList.map( (el, index) => {
                 return(
-                <div key={index} onClick={this.handleSelect.bind(this, el)}>
-                  <h5>Result #{index+1}</h5>
+                <div className="trailHead" key={index} onClick={this.handleSelect.bind(this, el)}>
+                  <h5>Trail {index+1}</h5>
                   <ul>
                     <li>Trailhead: {el.name}</li>
                     <li>Location: {el.location}</li>
                   </ul>
+                  <hr />
                 </div>
                 )})}
             </div>
         </div>
-
             {/* Adding form to create tips and descriptions */}
             {(hikeForm.trailhead) && <main className="createHikeForm">
               <form onSubmit={this.handleSubmit}>
-              <h2>{hikeForm.trailhead}</h2>
+
               <div className= "hikeInputForm">
+              <h2>{hikeForm.trailhead}</h2>
               <input className= "hikeInput" required
                 type="hikename"
                 name="hikename"
@@ -104,7 +112,7 @@ class NewHike extends Component {
                 value={hikeForm.hikename}
                 onChange={this.onChange}
               />
-                <input className= "hikeInput" required
+                <textarea className= "hikeInput" required
                   type="comments"
                   name="comments"
                   placeholder= "Hike Comments"
@@ -112,19 +120,19 @@ class NewHike extends Component {
                   onChange={this.onChange}
                 />
 
-                <input className= "hikeInput" required
+                <textarea className= "hikeInput" required
                   type="tips"
                   name="tips"
                   placeholder= "Hike Tips"
                   value={hikeForm.tips}
                   onChange={this.onChange}
                 />
-                </div>
                 <button>Save</button>
+                </div>
               </form>
 
             </main>}
-            {(this.state.newHikeSuccess) && <Redirect to="/dashboard" />}
+            </div>
       </div>
     );
     }
@@ -142,6 +150,9 @@ class NewHike extends Component {
         newHikeSuccess: true
       })
     })
+      .then( () => {
+        this.props.history.push('/dashboard')
+      })
     // .then( () => {
     //   console.log(this.state)
     // })
@@ -154,6 +165,7 @@ class NewHike extends Component {
   submitCity = (e) => {
     e.preventDefault();
     this.getCoordinates(this.state.city)
+
 
   }
 

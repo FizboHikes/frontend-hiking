@@ -23,45 +23,46 @@ class RegisterForm extends Component {
 	render() {
 		let { email, password } = this.state.form.user
 		console.log(this.auth.loggedIn())
-		return (
-			<div>
-				<Grid>
-				<form onSubmit={this.onSubmit}>
-					<Row>
-						<Col>
-							<div className="missionStatement">
-							ShareHike’s mission is to connect with your friends and family through your personal hiking adventure.
+		let style = {width: 20, marginRight:5}
 
-							- Share your private hikes with your close friends.
-							- Share experiences through tips and photos.
-							- Find new trails and expand your private collection.
-							</div>
-						</Col>
-						<Col sm={2} md={2} lg={2}>
-							<h2>Welcome!</h2>
-							<h2>Register here.</h2>
-							<input
-								type="email"
-								name="email"
-								value={email}
-								onChange={this.onChange}
-							/>
-							{this.state.errors.email && <div>Error: Email  {this.state.errors.email[0]}</div>}
-							<input
-								type="password"
-								name="password"
-								value={password}
-								onChange={this.onChange}
-							/>
-							{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-							<button className="btn btn-primary">
-								Register
-							</button>
-						</Col>
-					</Row>
-					</form>
-				</Grid>
-			</div>
+		return (
+		<div className="registerPage">
+			<form  onSubmit={this.onSubmit}>
+					<div className="missionStatement">
+					Our mission is to connect with your friends and family through your personal hiking adventure.
+					<br/>
+					<br/><img src={require('../assets/share.png')} style={style} />   Share your private hikes with your close friends.<br/>
+					<br/><img src={require('../assets/journal.png')} style={style}/>    Create experiences through tips and photos.<br/><br/>
+					<img src={require('../assets/search.png')} style={style} />    Find new trails and expand your private collection.
+					</div>
+
+				<div className="registerForm">
+					<div className="innerRegister">
+						<h2 id="welcomeH2">Welcome!</h2>
+						<h2 id="welcomeH2">Join Up Here!</h2>
+						<input
+							className= "registerInput"
+							type="email"
+							name="email"
+							value={email}
+							onChange={this.onChange}
+						/>
+						{this.state.errors.email && <div>Error: Email  {this.state.errors.email[0]}</div>}
+						<input
+							className= "registerInput"
+							type="password"
+							name="password"
+							value={password}
+							onChange={this.onChange}
+						/>
+						{this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
+						<button className="joinUp">
+							Join Up
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
 
 		)
 	}

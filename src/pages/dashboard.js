@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Home from '../pages/home'
 import NavMenu from '../components/navmenu'
-import { Jumbotron } from 'react-bootstrap'
+import { Jumbotron, Carousel } from 'react-bootstrap'
 import HikeCard from '../components/hikeCard'
-import '../App.css';
 import '../assets/dashboard.css';
 import HikeList from '../components/hikeList'
+import FriendsHikeList from '../components/friendsHikeList'
 import AuthService from '../services'
-import { getUserHikes, getProfile } from '../api'
+import { getUserHikes, getProfile, getFriendHikes} from '../api'
 import ProfileCard from '../components/profileCard'
+import FollowFriend from '../components/followFriend'
 
 class Dashboard extends Component {
   constructor(props){
@@ -18,17 +19,20 @@ class Dashboard extends Component {
       userHikes: [],
       userId: this.auth.getUserId(),
       successDelete: false,
-      profileInfo: {}
+      profileInfo: {},
+      friendHikes: []
     }
   }
 
   componentDidMount(){
+
     getUserHikes(this.state.userId)
     .then(APIhikes => {
       this.setState({
         userHikes: APIhikes
       })
     })
+    .catch(error => console.log("This is error message from getUSerHikes", error))
 
     getProfile(this.state.userId)
       .then( APIUser => {
@@ -36,31 +40,53 @@ class Dashboard extends Component {
           profileInfo: APIUser
         })
       })
+      .catch(error => console.log(error))
+
+
+    getFriendHikes(this.state.userId)
+      .then( APIFriendHikes => {
+        // console.log("these are my friend's hikes", APIFriendHikes)
+        this.setState({
+          friendHikes: APIFriendHikes
+        })
+      })
+      .catch(error => console.log(error))
+
   }
 
   render() {
     let { profileInfo } = this.state
     return (
       <div>
-        <Jumbotron>
-        </Jumbotron>
-        {(this.state.profileInfo) && <ProfileCard profileInfo={this.state.profileInfo} />}
-          <div>
-          </div>
-            <div className="HikeList">
-              <div className="cardComponent">
-              {(this.state.successDelete) && <strong>Hike Deleted</strong> }
-                {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
+      <div  className="image"></div>
+      <div className="dashboardPage">
+            <div className="hikesContainer">
+              <div>
+                <h1>MY HIKES </h1>
+                <div>
+                  {(this.state.successDelete) && <strong>Hike Deleted</strong> }
+                  {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
+                </div>
               </div>
-          </div>
+
+              <div>
+              <h1>TRAILBLAZERS I FOLLOW</h1>
+              <FollowFriend userId={this.state.userId}/>
+                <div>
+                  {(this.state.friendHikes) && <FriendsHikeList friendsHikes={this.state.friendHikes}/>}
+                </div>
+              </div>
+            </div>
+      </div>
       </div>
     );
   }
-  successDelete = () => {
-    this.state.userHikes.shift()
+  successDelete = (key) => {
+    delete this.state.userHikes[key];
     this.setState({successDelete: true})
   }
 
+  
   // we can make a setInterval function or something that runs it once and then stops. or maybe a do while.
 }
 

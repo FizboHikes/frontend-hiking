@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { Jumbotron } from 'react-bootstrap';
 import RegisterForm from '../components/registerForm'
 import LoginForm from '../components/loginForm'
@@ -9,7 +8,7 @@ import '../assets/home.css'
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="homeDiv">
       <GuestNavMenu setUser={this.props.setUser}/>
       <Jumbotron>
       </Jumbotron>

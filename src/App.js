@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Home from './pages/home'
 import NavMenu from './components/navmenu'
 import Dashboard from './pages/dashboard'
@@ -15,7 +14,8 @@ class App extends Component {
     this.auth = new AuthService()
     this.state={
       authenticated: this.auth.loggedIn(),
-      user: {}
+      user: {},
+      userId: (this.auth.loggedIn()) ? this.auth.getUserId() : undefined
     }
   }
 
@@ -34,7 +34,8 @@ class App extends Component {
               <Route path="/home" component={Home} />
               <Route path="/dashboard" component={Dashboard}/>
               <Route path="/hikes/new" component={NewHike} />
-              <Route path="/hikes/:id" component={ShowHike} />
+              <Route path="/hikes/:id" render={(routeProps) => (
+                <ShowHike userId={this.state.userId} {...routeProps} />)} />
             </Switch>
 
             // If NOT LOGGED IN (IE GUEST USER)

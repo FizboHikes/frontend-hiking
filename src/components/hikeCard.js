@@ -5,6 +5,8 @@ import HikeList from './hikeList'
 import { Navbar, Grid, Row, Col, Thumbnail } from 'react-bootstrap';
 import "../assets/hikeCard.css"
 import { deleteHike } from '../api'
+import Ratings from 'react-ratings-declarative'
+
 
 class HikeCard extends Component {
   constructor(props){
@@ -13,28 +15,65 @@ class HikeCard extends Component {
   render(){
 
     let {hike} = this.props
+    let style = {backgroundImage: `url(${(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'}
+    if (this.props.friend) {
+      return(
+        <div className="hikeCard" style={style}>
+          <div className="overlay">
+            <div className="hikeCardText">
+          <a href={"/hikes/" + hike.id}>  <h3>"{hike.hikename}"</h3>
+            {(hike.stars) &&<Ratings
+              rating={parseFloat(hike.stars)}
+              widgetDimensions="15px"
+              widgetSpacings="3px"
+            >
+            <Ratings.Widget widgetRatedColor="black" />
+            <Ratings.Widget widgetRatedColor="black" />
+            <Ratings.Widget widgetRatedColor="black" />
+            <Ratings.Widget widgetRatedColor="black" />
+            <Ratings.Widget widgetRatedColor="black" />
+            </Ratings>}
+            <p>{hike.trailhead}</p>
+            <p>{hike.location}</p>
+            <p>Hiker: {hike.user.email}</p>
+          </a>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
     return(
-    <div className="theContainer">
-    <Grid>
-      <Row className="HikeCardRow">
-        <Col sm={6} md={3} lg={3}>
-          <Thumbnail className="hikeCard" href={`hikes/${hike.id}`} src={(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"}>
-            <h2>{hike.hikename}</h2>
-            <p><strong>Comments: </strong>{hike.comments}</p>
-            <p><strong>Tips: </strong>{hike.tips}</p>
-            <button onClick= {this.handleDelete}>Delete this Hike</button>
-            </Thumbnail>
-        </Col>
-      </Row>
-    </Grid>
-    </div>
-    )
+      <div className="hikeCard" style={style}>
+        <div className="overlay">
+          <div className="hikeCardText">
+        <a href={"/hikes/" + hike.id}>  <h3>"{hike.hikename}"</h3>
+        {(hike.stars) && <Ratings
+          rating={parseFloat(hike.stars)}
+          widgetDimensions="15px"
+          widgetSpacings="3px"
+        >
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="black" />
+        <Ratings.Widget widgetRatedColor="black" />
+        </Ratings>}
+          <p>{hike.trailhead}</p>
+          <p>{hike.location}</p>
+        </a>
+          <span onClick= {this.handleDelete}>🗑</span>
+          </div>
+        </div>
+      </div>
+    )}
   }
   handleDelete = (e) => {
     e.preventDefault()
     deleteHike(this.props.hike.id)
     .then(()=>{
-      this.props.successDelete()
+      this.props.successDelete(this.props.arrIndex)
     })
   }
 }

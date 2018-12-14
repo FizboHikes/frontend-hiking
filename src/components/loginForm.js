@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { Redirect, Link } from 'react-router-dom';
 import AuthService from '../services';
-
+import '../assets/home.css'
 
 //Login to be renamed
 class LoginForm extends Component {
@@ -27,6 +26,7 @@ class LoginForm extends Component {
     <main>
       <form className="loginForm" onSubmit={this.onSubmit}>
         <input
+          className="logForm"
           type="email"
           name="email"
           value={email}
@@ -36,6 +36,7 @@ class LoginForm extends Component {
         {this.state.errors.email && <div>Error: Email  {this.state.errors.email[0]}</div>}
 
         <input
+          className="logForm"
           type="password"
           name="password"
           value={password}
@@ -43,7 +44,7 @@ class LoginForm extends Component {
           // placeholder={password}
         />
         {this.state.errors.password && <div>Error: Password  {this.state.errors.password[0]}</div>}
-        <button>Login</button>
+        <button className="logButton" style={{backgroundColor: "rgb(230, 160, 0)"}}>Login</button>
       </form>
 
     </main>
@@ -73,9 +74,9 @@ class LoginForm extends Component {
         this.setState({
           loginSuccess: true
         })
-
       }
     })
+    .catch( error => alert("error"))
   }
 }
 

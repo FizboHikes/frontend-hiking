@@ -1,33 +1,53 @@
 
-.hikeCard{
+
+.hikeCard {
+  border: 2px solid orange;
+  text-align: center;
+  margin: 7px 5px;
+  height: 225px;
+  box-shadow: 1px 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.hikeCard p, .hikeCard h3 {
+  width: 280px;
+  color: black;
+  line-height: .8em;
+}
+
+.hikeCard h3{
+  margin-bottom: 10px;
+}
+
+.overlay {
+  opacity: 0;
+  background-color: orange;
+  height: 100%;
+  width: 100%;
+  position:relative;
+  top: -21px;
+  transition: .5s ease;
+}
+
+.hikeCard:hover .overlay{
+  opacity: .8;
+
+}
+
+.hikeCardText {
   margin: auto;
-  width: 300px;
-  border: 1px solid red;
-
+  color: black;
+  transform: translateY(50px);
 }
 
-.HikeCardRow {
-  width: 100px;
-  margin: 0px;
-  padding: 0px;
+a:link {
+ text-decoration: none;
+ color: black;
 }
 
-.col-lg-3 {
-  padding: 0px;
-}
-.col-md-3 {
-  padding: 0px;
-}
-.col-sm-6 {
-  padding: 0px;
-}
 
-.theContainer {
-  display: grid;
-  flex-direction: column;
-  text-align: left;
-  justify-content: space-around;
-  margin: 30px;
-  flex-wrap: wrap;
-
+.hikeCard span {
+  position: absolute;
+  right: 5px;
+  top: -45px;
+  cursor: pointer;
 }
