@@ -8,7 +8,7 @@ import '../assets/home.css'
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="homeDiv">
       <GuestNavMenu setUser={this.props.setUser}/>
       <Jumbotron>
       </Jumbotron>

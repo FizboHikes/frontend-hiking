@@ -13,6 +13,10 @@
 
     overflow: auto;
   }
+  .showHikeContainer h2 {
+    font-weight: bolder;
+    color: rgb(230, 138, 0);
+  }
   /* img {
     background-size: cover;
     height: 200px;
