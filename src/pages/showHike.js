@@ -28,7 +28,7 @@ export default class ShowHike extends Component {
     if (this.state.hike){
       return(
         <div>
-        <div className="image"></div>
+        <div className="showHikeImage"></div>
         <div className="showHikeContainer">
           <div className="showHikeImg">
             <img className="img-thumbnail" src={(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"} />
