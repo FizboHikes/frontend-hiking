@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { followFriend } from '../api'
 
+
 export default class FollowFriend extends Component {
   constructor(props){
     super(props)
@@ -19,9 +20,9 @@ export default class FollowFriend extends Component {
           this.Capitalize(this.state.errorMessage.friend_id[0]) :
           this.state.formSuccess
         }
-      <form onSubmit={this.handleFollow}>
+      <form className="followFriendForm" onSubmit={this.handleFollow}>
         <input className="followFriendInput" value={this.state.email} placeholder="Add a friend" onChange={this.handleChange} required/>
-        <button className="btn btn-success">Follow Hiker</button>
+        <button className="btn btn-success" id="followFriendBtn">Follow Hiker</button>
       </form>
       </div>
     )

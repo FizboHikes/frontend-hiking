@@ -49,7 +49,7 @@ class HikeCard extends Component {
         <div className="overlay">
           <div className="hikeCardText">
         <a href={"/hikes/" + hike.id}>  <h3>"{hike.hikename}"</h3>
-        <Ratings
+        {(hike.stars) && <Ratings
           rating={parseFloat(hike.stars)}
           widgetDimensions="15px"
           widgetSpacings="3px"
@@ -59,7 +59,7 @@ class HikeCard extends Component {
         <Ratings.Widget widgetRatedColor="black" />
         <Ratings.Widget widgetRatedColor="black" />
         <Ratings.Widget widgetRatedColor="black" />
-        </Ratings>
+        </Ratings>}
           <p>{hike.trailhead}</p>
           <p>{hike.location}</p>
         </a>

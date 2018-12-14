@@ -34,7 +34,7 @@ export default class ShowHike extends Component {
             <img className="img-thumbnail" src={(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"} />
           </div>
           <div className="showHikeText">
-            <h2> "{hike.hikename}"</h2>
+            <h2 className="showHikeH2"> "{hike.hikename}"</h2>
             <h4><strong>TrailHead:</strong> {hike.trailhead}</h4>
             <p><strong>Location:</strong> {hike.location}</p>
               {hike.stars &&

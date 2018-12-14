@@ -15,8 +15,8 @@ class NavMenu extends Component {
   render() {
     console.log("This is the props.user. in navmenu :", this.props.user)
     return(
-      <Navbar className="Navbar">
-      <Navbar.Header>
+      <Navbar className="Navbar" >
+      <Navbar.Header staticTop>
         <Navbar.Brand pullLeft>
           <a href="/home"><img className="coolIcon" src={require('../assets/fizbologo.png')} /></a>
         </Navbar.Brand>
