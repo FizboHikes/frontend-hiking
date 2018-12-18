@@ -76,6 +76,7 @@ class Dashboard extends Component {
             <div className="hikesContainer">
               <div>
                 <h1>MY HIKES </h1>
+                {!this.state.userHikes &&  <Alert className="createHike" bsStyle = "info ">Trailblaze a New Hike with the Create Hike ⬆️ </Alert> }
                 <div>
                   {(this.state.successDelete) && <Alert className="deleteAlert" bsStyle = "success ">Hike Deleted</Alert> }
                   {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
