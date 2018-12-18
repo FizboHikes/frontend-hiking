@@ -14,6 +14,7 @@ const HikeList = (props) => {
     return(
 
       <div className="hikeList">
+        {(props.greeting) ? <h2 className="greeting">{props.greeting}</h2> : ''}
         {hikeList}
       </div>
     )

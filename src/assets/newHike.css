@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Kalam');
-
+@import url('https://fonts.googleapis.com/css?family=Merienda');
+@import url('https://fonts.googleapis.com/css?family=Merienda|Shadows+Into+Light+Two');
 
 .createHikeForm {
   display: flex;
@@ -16,8 +17,8 @@
   background-repeat: no-repeat;
 }
 
-.createHikeForm h2 {
-  font-family: "Kalam", sans-serif;
+h2 {
+  font-family: "Shadows Into Light Two", sans-serif;
 }
 
 .hikeImage {
@@ -79,7 +80,7 @@ textarea::-webkit-input-placeholder{
 .trailList {
   display: flex;
   flex-direction: column;
-  
+
   background-color: rgba(265,265,265,.045);
   border-radius: 10px;
   width: 300px;
@@ -144,7 +145,7 @@ textarea::-webkit-input-placeholder{
 .searchHike h2 {
   text-align: center;
   color:rgb(230, 138, 0);
-  font-family: Kalam;
+  font-family: "Shadows Into Light Two";
   text-decoration: underline;
 
 }
