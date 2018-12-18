@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from '../pages/home'
 import NavMenu from '../components/navmenu'
-import { Jumbotron, Carousel } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 import HikeCard from '../components/hikeCard'
 import '../assets/dashboard.css';
 import HikeList from '../components/hikeList'
@@ -77,7 +77,7 @@ class Dashboard extends Component {
               <div>
                 <h1>MY HIKES </h1>
                 <div>
-                  {(this.state.successDelete) && <strong>Hike Deleted</strong> }
+                  {(this.state.successDelete) && <Alert className="deleteAlert" bsStyle = "success ">Hike Deleted</Alert> }
                   {(this.state.userHikes) && <HikeList successDelete={this.successDelete} userHikes={this.state.userHikes}/>}
                 </div>
               </div>
