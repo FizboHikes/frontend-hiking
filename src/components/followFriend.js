@@ -39,6 +39,7 @@ export default class FollowFriend extends Component {
       .then(resp => {
         if(resp.success){
           console.log("HANDLEFOLLOW SUCCESS RESP", resp)
+          this.props.resetFriendHikes()
           this.setState({
             formSuccess: "Hiker Successfully Followed",
             errorMessage: null
