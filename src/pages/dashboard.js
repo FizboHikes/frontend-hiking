@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import Home from '../pages/home'
-import NavMenu from '../components/navmenu'
-import { Alert } from 'react-bootstrap'
-import HikeCard from '../components/hikeCard'
+import { Alert } from 'react-bootstrap';
 import '../assets/dashboard.css';
 import HikeList from '../components/hikeList'
-import FriendsHikeList from '../components/friendsHikeList'
-import AuthService from '../services'
-import { getUserHikes, getProfile, getFriendHikes} from '../api'
-import ProfileCard from '../components/profileCard'
-import FollowFriend from '../components/followFriend'
+import FriendsHikeList from '../components/friendsHikeList';
+import AuthService from '../services';
+import { getUserHikes, getProfile, getFriendHikes} from '../api';
+import FollowFriend from '../components/followFriend';
 
 class Dashboard extends Component {
   constructor(props){
@@ -68,7 +64,6 @@ class Dashboard extends Component {
 
 
   render() {
-    let { profileInfo } = this.state
     return (
       <div>
       <div  className="image"></div>

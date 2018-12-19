@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar } from 'react-bootstrap';
 import AuthService from '../services';
-import GuestNavMenu from './guestnavmenu';
 import '../assets/dashboard.css'
 
 
@@ -18,7 +17,7 @@ class NavMenu extends Component {
       <Navbar className="Navbar" >
       <Navbar.Header staticTop>
         <Navbar.Brand pullLeft>
-          <a href="/home"><img className="coolIcon" src={require('../assets/fizbologo.png')} /></a>
+          <a href="/home"><img className="coolIcon" src={require('../assets/fizbologo.png')} alt="TrailBlaze Logo"/></a>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>

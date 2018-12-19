@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Dashboard from '../pages/dashboard'
+import React from 'react';
 import HikeCard from './hikeCard';
 import '../assets/dashboard.css'
 

@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import Dashboard from '../pages/dashboard'
+import React from 'react';
 import HikeCard from './hikeCard';
-import '../assets/dashboard.css'
-import { Carousel } from 'react-bootstrap'
+import '../assets/dashboard.css';
 
 const HikeList = (props) => {
     let hikeList = props.userHikes.map((hike, index) => {

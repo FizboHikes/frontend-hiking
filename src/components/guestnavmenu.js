@@ -4,9 +4,6 @@ import LoginForm from '../components/loginForm'
 
 
 class GuestNavMenu extends Component {
-  constructor(props){
-    super(props)
-  }
 
   render() {
     return(
@@ -14,7 +11,7 @@ class GuestNavMenu extends Component {
         <Navbar className="Navbar">
           <Navbar.Header>
             <Navbar.Brand pullLeft>
-              <a href="/home"><img className="coolIcon" src={require('../assets/fizbologo.png')} /></a>
+              <a href="/home"><img className="coolIcon" src={require('../assets/fizbologo.png')} alt="TrailBlaze Logo" /></a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import Dashboard from '../pages/dashboard'
-import App from '../App'
-import HikeList from './hikeList'
-import { Navbar, Grid, Row, Col, Thumbnail } from 'react-bootstrap';
 import "../assets/hikeCard.css"
 import { deleteHike } from '../api'
 import Ratings from 'react-ratings-declarative'
 
 
 class HikeCard extends Component {
-  constructor(props){
-    super(props)
-  }
+
   render(){
 
     let {hike} = this.props

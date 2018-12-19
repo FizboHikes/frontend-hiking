@@ -47,9 +47,9 @@ export default class FollowFriend extends Component {
         }else{
           let message;
           console.log("HANDLEFOLLOW ERROR RESP", resp)
-          if (resp.errors.friend_id[0] == "has already been taken") {
+          if (resp.errors.friend_id[0] === "has already been taken") {
             message = "Already following this hiker"
-          } else if (resp.errors.friend[0] == "must exist") {
+          } else if (resp.errors.friend[0] === "must exist") {
             message = "This hiker is off the grid"
           }
           this.setState({

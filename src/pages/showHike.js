@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getHike } from '../api'
 import '../assets/showHike.css'
-import {Thumbnail} from 'react-bootstrap'
 import Ratings from 'react-ratings-declarative'
 
 export default class ShowHike extends Component {
@@ -18,7 +17,7 @@ export default class ShowHike extends Component {
    getHike(id)
    .then((hike) => {
      console.log(hike);
-     this.setState({hike: hike, isMyHike: (this.props.userId == hike.user_id)})
+     this.setState({hike: hike, isMyHike: (this.props.userId === hike.user_id)})
    })
  }
 
@@ -31,7 +30,7 @@ export default class ShowHike extends Component {
         <div className="showHikeImage"></div>
         <div className="showHikeContainer">
           <div className="showHikeImg">
-            <img className="img-thumbnail" src={(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"} />
+            <img className="img-thumbnail" src={(hike.image) ? hike.image : "https://i.pinimg.com/originals/77/85/91/7785910e63b1662e8abe313c8ef9d160.jpg"} alt="Default"/>
           </div>
           <div className="showHikeText">
             <h2 className="showHikeH2"> "{hike.hikename}"</h2>

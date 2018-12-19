@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import RegisterForm from '../components/registerForm'
-import LoginForm from '../components/loginForm'
 import GuestNavMenu from '../components/guestnavmenu'
 import '../assets/home.css'
 

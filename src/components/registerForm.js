@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
-import { Alert, Grid, Col, Row, Button} from 'react-bootstrap'
 import AuthService from '../services'
 import '../assets/home.css'
 class RegisterForm extends Component {
@@ -31,9 +29,9 @@ class RegisterForm extends Component {
 					<div className="missionStatement">
 					Our mission is to connect with your friends and family through your personal hiking adventure.
 					<br/>
-					<br/><img src={require('../assets/share.png')} style={style} />   Share your private hikes with your close friends.<br/>
-					<br/><img src={require('../assets/journal.png')} style={style}/>    Create experiences through tips and photos.<br/><br/>
-					<img src={require('../assets/search.png')} style={style} />    Find new trails and expand your private collection.
+					<br/><img src={require('../assets/share.png')} alt= "Share Logo" style={style} />   Share your private hikes with your close friends.<br/>
+					<br/><img src={require('../assets/journal.png')} alt= "Journal Logo" style={style}/>    Create experiences through tips and photos.<br/><br/>
+					<img src={require('../assets/search.png')} alt= "Search Logo" style={style} />    Find new trails and expand your private collection.
 					</div>
 
 				<div className="registerForm">

@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Home from '../pages/home'
-import NavMenu from '../components/navmenu'
-import { BrowserRouter as Redirect } from 'react-router-dom';
 import '../assets/newHike.css'
 import  AuthService  from '../services'
 import { createHike } from '../api'
@@ -31,7 +28,6 @@ class NewHike extends Component {
           high: "",
           ascent: "",
           difficulty: "",
-          stars: "",
           location: "",
           user_id: undefined
           // changed it to undefined because it's one less function call being needed.
@@ -177,7 +173,6 @@ class NewHike extends Component {
   }
 
   handleSelect = (el) => {
-    let { hikeForm } = this.state
     this.setState({ hikeForm: {
       trailhead: el.name,
       image: el.imgMedium,
@@ -186,7 +181,6 @@ class NewHike extends Component {
       high: el.high,
       ascent: el.ascent,
       difficulty: el.difficulty,
-      stars: el.stars,
       location: el.location,
       user_id: this.auth.getUserId()}
     })
