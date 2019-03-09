@@ -30,8 +30,8 @@ class App extends Component {
         {(this.auth.loggedIn())
           // if logged in
           ? <Switch>
-              <Redirect path="/home" to="/dashboard"/>
-              <Route path="/home" component={Home} />
+              <Redirect path="/" to="/dashboard"/>
+              <Route path="/" component={Home} />
               <Route path="/dashboard" component={Dashboard}/>
               <Route path="/hikes/new" component={NewHike} />
               <Route path="/hikes/:id" render={(routeProps) => (
@@ -40,9 +40,9 @@ class App extends Component {
 
             // If NOT LOGGED IN (IE GUEST USER)
           : <Switch>
-            <Route path="/home" render={(routeProps) => (
+            <Route path="/" render={(routeProps) => (
               <Home setUser={this.setUser} {...routeProps} />)} />
-            <Redirect path="/dashboard" to="/home"/>
+            <Redirect path="/dashboard" to="/"/>
             </Switch>}
 
         </div>
